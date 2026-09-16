@@ -24,12 +24,34 @@ function getDbData(string $file): array {
     if (!file_exists($file)) {
         return ['cariler' => [], 'teklifler' => []];
     }
-    $content = file_get_contents($file);
+    $fp = @fopen($file, 'rb');
+    if (!$fp) {
+        return ['cariler' => [], 'teklifler' => []];
+    }
+    flock($fp, LOCK_SH);
+    $content = stream_get_contents($fp);
+    flock($fp, LOCK_UN);
+    fclose($fp);
     return json_decode($content ?: '{}', true) ?: ['cariler' => [], 'teklifler' => []];
 }
 
 function saveDbData(string $file, array $data): bool {
-    return file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)) !== false;
+    $fp = @fopen($file, 'c+b');
+    if (!$fp) {
+        return false;
+    }
+    if (!flock($fp, LOCK_EX)) {
+        fclose($fp);
+        return false;
+    }
+    ftruncate($fp, 0);
+    rewind($fp);
+    $encoded = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    $result = fwrite($fp, $encoded ?: '') !== false;
+    fflush($fp);
+    flock($fp, LOCK_UN);
+    fclose($fp);
+    return $result;
 }
 
 $action = $_GET['action'] ?? $_POST['action'] ?? '';
