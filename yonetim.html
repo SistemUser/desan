@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desan Konveyör - B2B Yönetim Paneli</title>
+  <meta name="description" content="Desan Konveyör B2B Yönetim Masası: Canlı Döviz Motoru, RFQ Teklif Masası, Stok & Fiyatlandırma Yönetimi." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/index.css" />
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .sidebar-active {
+      background-color: #E0F2FE !important;
+      color: #0284C7 !important;
+      font-weight: 700 !important;
+      border-right: 4px solid #0284C7 !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- LOGIN OVERLAY -->
+  <div id="admin-login-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-2xl shadow-2xl max-w-md w-full p-8 space-y-6">
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-xl bg-[#0284C7] text-white flex items-center justify-center font-bold text-2xl mx-auto shadow-md mb-3">
+          <span class="material-symbols-outlined text-2xl">admin_panel_settings</span>
+        </div>
+        <h2 class="text-xl font-extrabold text-slate-900 tracking-tight">DESAN <span class="text-[#0284C7]">YÖNETİM</span> PANELİ</h2>
+        <p class="text-xs text-slate-500 mt-1">Lütfen devam etmek için giriş yapınız.</p>
+      </div>
+
+      <form id="admin-login-form" class="space-y-4">
+        <div id="login-error-box" class="hidden p-3 bg-rose-50 border border-rose-200 rounded-lg text-xs font-semibold text-rose-700 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">error</span>
+          <span id="login-error-text">Kullanıcı adı veya şifre hatalı!</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Kullanıcı Adı</label>
+          <div class="relative">
+            <input type="text" id="login-username" required class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-900 outline-none focus:ring-2 focus:ring-[#0284C7] focus:bg-white transition-all" placeholder="desan">
+            <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-slate-400 text-[20px]">person</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Şifre</label>
+          <div class="relative">
+            <input type="password" id="login-password" required class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-900 outline-none focus:ring-2 focus:ring-[#0284C7] focus:bg-white transition-all" placeholder="••••••">
+            <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-slate-400 text-[20px]">lock</span>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-[#0284C7] hover:bg-[#0369a1] text-white rounded-xl font-bold text-sm transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">login</span>
+          <span>Giriş Yap</span>
+        </button>
+      </form>
+
+      <div class="text-center pt-2 border-t border-slate-100">
+        <span class="text-[11px] font-mono text-slate-400">Varsayılan: desan / 654321</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- LOGO & BADGE -->
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2.5 text-[#0F172A] hover:opacity-90 transition-opacity">
+          <div class="w-9 h-9 rounded-lg bg-[#0284C7] text-white flex items-center justify-center font-bold text-lg shadow-sm">
+            <span class="material-symbols-outlined text-xl">precision_manufacturing</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-slate-900 tracking-tight text-base leading-none">DESAN <span class="text-[#0284C7]">KONVEYÖR</span></span>
+            <span class="text-[10px] font-mono font-semibold text-slate-500 tracking-wider uppercase mt-0.5">B2B Yönetim Portalı v2.6</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- HEADER RIGHT STATS & NAVIGATION -->
+      <div class="flex items-center gap-4">
+        <!-- LIVE RATE INDICATOR BADGE -->
+        <div id="header-rate-widget" class="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200 font-mono text-xs text-slate-700">
+          <span class="flex h-2 w-2 relative">
+            <span id="rate-pulse-dot" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span id="rate-status-dot" class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>USD: <strong id="header-usd-val" class="text-slate-900 font-bold">38.50 ₺</strong></span>
+          <span class="text-slate-300">|</span>
+          <span>EUR: <strong id="header-eur-val" class="text-slate-900 font-bold">42.20 ₺</strong></span>
+          <span class="text-slate-400 text-[10px]" id="header-rate-status">Auto (15dk)</span>
+        </div>
+
+        <!-- MAIN PORTAL LINK -->
+        <a href="/index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-all">
+          <span class="material-symbols-outlined text-[16px]">storefront</span>
+          <span class="hidden sm:inline">Müşteri Portalı</span>
+        </a>
+
+        <!-- LOGOUT BUTTON -->
+        <button id="btn-admin-logout" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold transition-all border border-rose-200">
+          <span class="material-symbols-outlined text-[16px]">logout</span>
+          <span>Çıkış Yap</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER WITH SIDEBAR & CONTENT -->
+  <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex-1 flex flex-col md:flex-row gap-6">
+
+    <!-- LEFT SIDEBAR NAV -->
+    <aside class="w-full md:w-64 shrink-0 flex flex-col gap-1.5">
+      <div class="bg-white border border-slate-200 rounded-xl p-2 shadow-2xs">
+        <div class="px-3 py-2 text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400">Yönetim Modülleri</div>
+        
+        <nav class="flex flex-col gap-1" id="admin-sidebar-nav">
+          <button data-tab="currency" class="sidebar-btn sidebar-active w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-all text-left">
+            <span class="material-symbols-outlined text-[20px]">currency_exchange</span>
+            <span>Döviz & Fiyatlandırma</span>
+          </button>
+          
+          <button data-tab="rfq" class="sidebar-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-all text-left">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">request_quote</span>
+              <span>Gelen Teklifler (RFQ)</span>
+            </div>
+            <span id="badge-rfq-count" class="bg-[#0284C7] text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
+          </button>
+
+          <button data-tab="stock" class="sidebar-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-all text-left">
+            <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+            <span>Ürün & Stok Yönetimi</span>
+          </button>
+
+          <button data-tab="service" class="sidebar-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-all text-left">
+            <span class="material-symbols-outlined text-[20px]">engineering</span>
+            <span>Saha Servis & Keşif</span>
+          </button>
+
+          <button data-tab="customers" class="sidebar-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-all text-left">
+            <span class="material-symbols-outlined text-[20px]">domain</span>
+            <span>Kurumsal Cariler</span>
+          </button>
+
+          <button data-tab="settings" class="sidebar-btn w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-100 transition-all text-left">
+            <span class="material-symbols-outlined text-[20px]">settings</span>
+            <span>Genel Site Ayarları</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- SYSTEM STATUS MINI CARD -->
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-2xs mt-auto">
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Oturum: <strong id="logged-admin-name" class="font-mono text-slate-900">desan</strong></span>
+        </div>
+        <div class="text-[11px] text-slate-500 mt-1 font-mono">localStorage & desan_db.json senkronize.</div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT PANELS -->
+    <main class="flex-1 w-full min-w-0">
+
+      <!-- ========================================================================= -->
+      <!-- MODÜL 1: DÖVİZ & FİYATLANDIRMA MOTORU -->
+      <!-- ========================================================================= -->
+      <section id="module-currency" class="admin-panel space-y-6">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+            <div>
+              <h1 class="text-xl font-bold text-[#0F172A]">Döviz Kuru & Fiyatlandırma Motoru</h1>
+              <p class="text-xs text-slate-500 mt-0.5">Otomatik 15 dk (open.er-api.com) döviz kuru entegrasyonu veya isteğe bağlı manuel sabitleme.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="btn-sync-now" class="inline-flex items-center gap-2 px-4 py-2 bg-[#0284C7] hover:bg-[#0369a1] text-white rounded-lg font-semibold text-xs transition-all shadow-sm active:scale-95 cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">sync</span>
+                <span>Şimdi Güncelle (API)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- CURRENCY STATUS CARDS -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            
+            <!-- CARD 1: LIVE USD & EUR RATES -->
+            <div class="bg-sky-50/60 border border-sky-200 rounded-xl p-4">
+              <div class="text-xs font-mono text-slate-500 uppercase font-semibold">Canlı USD & EUR / TRY Kuru</div>
+              <div class="flex items-baseline justify-between mt-2 font-mono">
+                <div>
+                  <span class="text-xs text-slate-500">USD:</span>
+                  <span class="text-2xl font-extrabold text-[#0F172A] ml-1" id="val-live-usd">38.50 ₺</span>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-500">EUR:</span>
+                  <span class="text-2xl font-extrabold text-[#0F172A] ml-1" id="val-live-eur">42.20 ₺</span>
+                </div>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-2 flex items-center justify-between">
+                <span>Son Güncelleme:</span>
+                <strong id="val-last-time" class="font-mono text-slate-700">15:30:00</strong>
+              </div>
+            </div>
+
+            <!-- CARD 2: AUTO SYNC TOGGLE -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col justify-between">
+              <div>
+                <div class="text-xs font-mono text-slate-500 uppercase font-semibold">15 Dk Otomatik API Güncelleme</div>
+                <div class="text-xs text-slate-600 mt-1">Her 15 dakikada bir canlı USD ve EUR kurlarını çeker.</div>
+              </div>
+              <div class="flex items-center justify-between pt-3">
+                <span class="text-xs font-semibold text-slate-800" id="label-auto-sync-status">Durum: Aktif (15 dk)</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="toggle-auto-sync" class="sr-only peer" checked>
+                  <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0284C7]"></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- CARD 3: MANUAL RATE OVERRIDE -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col justify-between">
+              <div>
+                <div class="text-xs font-mono text-slate-500 uppercase font-semibold mb-2">Manuel Sabit Kur Girişi</div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-[10px] font-mono text-slate-500 mb-0.5">USD (TL)</label>
+                    <input type="number" step="0.01" id="input-manual-usd" class="w-full px-2 py-1 bg-white border border-slate-300 rounded text-xs font-mono font-bold text-slate-900 focus:ring-1 focus:ring-[#0284C7] outline-none" value="38.50">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] font-mono text-slate-500 mb-0.5">EUR (TL)</label>
+                    <input type="number" step="0.01" id="input-manual-eur" class="w-full px-2 py-1 bg-white border border-slate-300 rounded text-xs font-mono font-bold text-slate-900 focus:ring-1 focus:ring-[#0284C7] outline-none" value="42.20">
+                  </div>
+                </div>
+              </div>
+              <div class="pt-2">
+                <button id="btn-save-manual-rates" class="w-full py-1.5 px-3 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold shrink-0 cursor-pointer active:scale-95 transition-all">Manuel Sabitle & Kaydet</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORM: BELT BASE RATES -->
+          <div class="mt-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-100">
+              <h2 class="text-sm font-bold uppercase tracking-wider text-slate-800 font-mono flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px] text-[#0284C7]">conveyor_belt</span>
+                <span>Konveyör Bant Metre Taban Fiyatları (<span id="label-base-currency-symbol">₺</span> / Metre - 650mm Standardı)</span>
+              </h2>
+              <div class="flex items-center gap-2">
+                <label class="text-xs font-semibold text-slate-600 font-mono shrink-0">Birim Para Birimi:</label>
+                <select id="select-pricing-base-currency" class="px-2.5 py-1 bg-slate-100 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 outline-none focus:ring-2 focus:ring-[#0284C7] cursor-pointer">
+                  <option value="TRY">₺ TRY (TL)</option>
+                  <option value="USD">$ USD (Dolar)</option>
+                  <option value="EUR">€ EUR (Euro)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">EP 400 Kauçuk (RUB)</label>
+                <div class="relative">
+                  <input type="number" id="rate-rub" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900 pr-12" value="4250">
+                  <span class="pricing-unit-badge absolute right-3 top-2 text-xs font-mono text-slate-400">₺/m</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Gıda Dayanımlı PVC</label>
+                <div class="relative">
+                  <input type="number" id="rate-pvc" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900 pr-12" value="2600">
+                  <span class="pricing-unit-badge absolute right-3 top-2 text-xs font-mono text-slate-400">₺/m</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Yağ & Yağ Dayanımlı PU</label>
+                <div class="relative">
+                  <input type="number" id="rate-pu" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900 pr-12" value="3800">
+                  <span class="pricing-unit-badge absolute right-3 top-2 text-xs font-mono text-slate-400">₺/m</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Yüksek Isı Dayanımlı GRP</label>
+                <div class="relative">
+                  <input type="number" id="rate-grp" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900 pr-12" value="3400">
+                  <span class="pricing-unit-badge absolute right-3 top-2 text-xs font-mono text-slate-400">₺/m</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORM: GENERAL DISCOUNT & VAT -->
+          <div class="mt-8">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-800 font-mono mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0284C7]">percent</span>
+              <span>Genel B2B İskonto ve KDV Parametreleri</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Genel B2B İskonto Oranı (%)</label>
+                <input type="number" id="rate-b2b-discount" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900" value="15">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">KDV Oranı (%)</label>
+                <input type="number" id="rate-vat" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900" value="20">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Sıcak Vulkanizasyon Ek İşçiliği (<span class="pricing-curr-symbol">₺</span>)</label>
+                <div class="relative">
+                  <input type="number" id="rate-splice-sp" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm font-mono font-bold text-slate-900 pr-8" value="1450">
+                  <span class="pricing-curr-symbol-badge absolute right-3 top-2 text-xs font-mono text-slate-400">₺</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SAVE FORM BUTTON -->
+          <div class="mt-8 pt-4 border-t border-slate-200 flex justify-end">
+            <button id="btn-save-pricing-formulas" class="px-6 py-2.5 bg-[#0284C7] hover:bg-[#0369a1] text-white rounded-lg font-bold text-xs transition-all shadow-md active:scale-95 flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">save</span>
+              <span>Fiyatlandırma Parametrelerini Kaydet</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- MODÜL 2: GELEN TEKLİF & PROFORMA MASASI (RFQ) -->
+      <!-- ========================================================================= -->
+      <section id="module-rfq" class="admin-panel space-y-6 hidden">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+            <div>
+              <h1 class="text-xl font-bold text-[#0F172A]">Gelen Teklif & Proforma Masası (RFQ)</h1>
+              <p class="text-xs text-slate-500 mt-0.5">Siteden iletilen tüm B2B proforma teklif talepleri ve canlı sipariş onay takibi.</p>
+            </div>
+            
+            <!-- SEARCH / FILTER -->
+            <div class="flex items-center gap-2">
+              <input type="text" id="rfq-search-input" placeholder="Firma veya Teklif No ara..." class="px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-xs outline-none focus:ring-2 focus:ring-[#0284C7] w-52">
+            </div>
+          </div>
+
+          <!-- STATUS FILTERS BADGES -->
+          <div class="flex items-center gap-2 overflow-x-auto py-3">
+            <button class="rfq-filter-btn px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#0284C7] text-white" data-status="all">Tümü</button>
+            <button class="rfq-filter-btn px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200" data-status="Yeni">Yeni</button>
+            <button class="rfq-filter-btn px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200" data-status="İnceleniyor">İnceleniyor</button>
+            <button class="rfq-filter-btn px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200" data-status="Onaylandı">Onaylandı</button>
+            <button class="rfq-filter-btn px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200" data-status="İmalatta">İmalatta</button>
+          </div>
+
+          <!-- TABLE -->
+          <div class="overflow-x-auto mt-2">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-[11px] font-mono uppercase tracking-wider text-slate-400 bg-slate-50">
+                  <th class="py-3 px-3">Teklif No</th>
+                  <th class="py-3 px-3">Firma Unvanı</th>
+                  <th class="py-3 px-3">Yetkili</th>
+                  <th class="py-3 px-3 text-center">Kalem</th>
+                  <th class="py-3 px-3 text-right">Genel Toplam (₺)</th>
+                  <th class="py-3 px-3">Tarih</th>
+                  <th class="py-3 px-3">Durum</th>
+                  <th class="py-3 px-3 text-right">İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="rfq-table-body" class="divide-y divide-slate-100 text-xs">
+                <!-- Dynamic Content via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- RFQ PAGINATION BAR -->
+          <div id="rfq-pagination-bar" class="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div id="rfq-pagination-info" class="text-slate-500 font-mono text-[11px]">
+              <!-- Toplam X tekliften Y - Z arası gösteriliyor -->
+            </div>
+            <div id="rfq-pagination-controls" class="flex items-center gap-1.5 font-mono">
+              <!-- Dynamic Page Buttons -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- MODÜL 3: STANDART ÜRÜN & STOK YÖNETİMİ -->
+      <!-- ========================================================================= -->
+      <section id="module-stock" class="admin-panel space-y-6 hidden">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+            <div>
+              <h1 class="text-xl font-bold text-[#0F172A]">Standart Ürün & Stok Yönetimi</h1>
+              <p class="text-xs text-slate-500 mt-0.5">Yataklı rulmanlar, manşonlar, sıyırıcılar stok durumları ve kurumsal fiyat listeleri.</p>
+            </div>
+            <button id="btn-add-product" class="px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all">
+              <span class="material-symbols-outlined text-[16px]">add</span>
+              <span>Yeni Ürün Ekle</span>
+            </button>
+          </div>
+
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-[11px] font-mono uppercase tracking-wider text-slate-400 bg-slate-50">
+                  <th class="py-3 px-3">Kod</th>
+                  <th class="py-3 px-3">Ürün Adı</th>
+                  <th class="py-3 px-3">Kategori</th>
+                  <th class="py-3 px-3">Stok Durumu</th>
+                  <th class="py-3 px-3 text-right">Birim Fiyat</th>
+                  <th class="py-3 px-3 text-right">10+ Adet Fiyatı</th>
+                  <th class="py-3 px-3 text-right">Güncelle</th>
+                </tr>
+              </thead>
+              <tbody id="stock-table-body" class="divide-y divide-slate-100 text-xs">
+                <!-- Dynamic Content via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- MODÜL 4: SAHA SERVİS VE KEŞİF RANDEVULARI -->
+      <!-- ========================================================================= -->
+      <section id="module-service" class="admin-panel space-y-6 hidden">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+            <div>
+              <h1 class="text-xl font-bold text-[#0F172A]">Saha Servis Ve Keşif Randevuları</h1>
+              <p class="text-xs text-slate-500 mt-0.5">Siteden alınan sıcak pres vulkanizasyon, bant değişimi ve tambur kaplama randevu talepleri.</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-[11px] font-mono uppercase tracking-wider text-slate-400 bg-slate-50">
+                  <th class="py-3 px-3">Talep No</th>
+                  <th class="py-3 px-3">Firma Adı</th>
+                  <th class="py-3 px-3">Lokasyon / OSB</th>
+                  <th class="py-3 px-3">Hizmet Türü</th>
+                  <th class="py-3 px-3">Hedef Tarih</th>
+                  <th class="py-3 px-3">Durum</th>
+                  <th class="py-3 px-3 text-right">İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="service-table-body" class="divide-y divide-slate-100 text-xs">
+                <!-- Dynamic Content via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- MODÜL 5: KURUMSAL CARİLER & MÜŞTERİ LİSTESİ -->
+      <!-- ========================================================================= -->
+      <section id="module-customers" class="admin-panel space-y-6 hidden">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+            <div>
+              <h1 class="text-xl font-bold text-[#0F172A]">Kurumsal Cariler & Müşteri Listesi</h1>
+              <p class="text-xs text-slate-500 mt-0.5">Fatura bilgileri, özel tanımlanmış B2B iskonto oranları ve müşteri hesapları.</p>
+            </div>
+            <button id="btn-add-customer" class="px-3.5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all">
+              <span class="material-symbols-outlined text-[16px]">domain_add</span>
+              <span>Yeni Cari Ekle</span>
+            </button>
+          </div>
+
+          <div class="overflow-x-auto mt-4">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-[11px] font-mono uppercase tracking-wider text-slate-400 bg-slate-50">
+                  <th class="py-3 px-3">Cari Kodu</th>
+                  <th class="py-3 px-3">Firma Unvanı</th>
+                  <th class="py-3 px-3">Vergi Dairesi & No</th>
+                  <th class="py-3 px-3">Yetkili İletişim</th>
+                  <th class="py-3 px-3 text-center">Özel İskonto</th>
+                  <th class="py-3 px-3 text-right">Güncelle</th>
+                </tr>
+              </thead>
+              <tbody id="customers-table-body" class="divide-y divide-slate-100 text-xs">
+                <!-- Dynamic Content via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- MODÜL 6: GENEL SİTE & DUYURU AYARLARI + YÖNETİCİ HESAP AYARLARI -->
+      <!-- ========================================================================= -->
+      <section id="module-settings" class="admin-panel space-y-6 hidden">
+        
+        <!-- ADMIN CREDENTIALS UPDATE CARD -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs border-l-4 border-l-[#0284C7]">
+          <div class="pb-4 border-b border-slate-100 flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#0284C7] text-xl">admin_panel_settings</span>
+            <div>
+              <h2 class="text-base font-bold text-[#0F172A]">Yönetici Giriş Bilgilerini Güncelle (Kullanıcı Adı & Şifre)</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Yönetim paneline giriş yaparken kullanılan kullanıcı adı ve şifreyi değiştirebilirsiniz.</p>
+            </div>
+          </div>
+
+          <form id="admin-update-credentials-form" class="space-y-4 mt-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Yeni Kullanıcı Adı</label>
+                <input type="text" id="setting-admin-user" required class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900" value="desan">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Mevcut Şifre</label>
+                <input type="password" id="setting-admin-current-pass" required class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900" placeholder="Mevcut şifrenizi giriniz">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Yeni Şifre</label>
+                <input type="password" id="setting-admin-new-pass" required class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900" placeholder="Yeni şifre">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Yeni Şifre Tekrar</label>
+                <input type="password" id="setting-admin-confirm-pass" required class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900" placeholder="Yeni şifreyi tekrar yazınız">
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-2">
+              <button type="submit" class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg font-bold text-xs transition-all shadow-md active:scale-95 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">key</span>
+                <span>Giriş Bilgilerini Güncelle</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- SITE ANNOUNCEMENT SETTINGS CARD -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-2xs">
+          <div class="pb-5 border-b border-slate-100">
+            <h1 class="text-xl font-bold text-[#0F172A]">Genel Site & Duyuru Ayarları</h1>
+            <p class="text-xs text-slate-500 mt-0.5">Müşteri portalındaki üst bant metinleri, sertifika rozetleri ve acil iletişim hatları.</p>
+          </div>
+
+          <div class="space-y-4 mt-6">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Üst Bant Güven Rozetleri Metni</label>
+              <input type="text" id="setting-trust-badges" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-medium text-slate-900" value="ISO 9001:2015 Sertifikalı | 7/24 Teknik Saha Desteği | İkitelli İmalat Tesisi">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Çalışma Saatleri Açıklaması</label>
+              <input type="text" id="setting-working-hours" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-medium text-slate-900" value="Pzt - Cmt: 08:00 - 18:30 (Pazar Nöbetçi Saha Servisi)">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Acil İletişim GSM Numarası</label>
+                <input type="text" id="setting-gsm" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900" value="+90 532 707 52 81">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp Hattı (Ülke Kodlu)</label>
+                <input type="text" id="setting-wa" class="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900" value="905327075281">
+              </div>
+            </div>
+
+            <div class="pt-4 flex justify-end">
+              <button id="btn-save-site-settings" class="px-6 py-2.5 bg-[#0284C7] hover:bg-[#0369a1] text-white rounded-lg font-bold text-xs transition-all shadow-md active:scale-95 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">save</span>
+                <span>Site Ayarlarını Güncelle</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- RFQ DETAILS MODAL -->
+  <div id="rfq-modal-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white border border-slate-200 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#0284C7]">receipt_long</span>
+          <div>
+            <h3 id="modal-rfq-title" class="font-bold text-slate-900 text-sm">Teklif Detayı: RFQ-2026-001</h3>
+            <p id="modal-rfq-subtitle" class="text-xs text-slate-500">Ods Madencilik ve Lojistik A.Ş.</p>
+          </div>
+        </div>
+        <button id="btn-close-rfq-modal" class="text-slate-400 hover:text-slate-700 text-xl font-bold p-1">✕</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto flex-1 space-y-5" id="modal-rfq-content">
+        <!-- Dynamic Content via JS -->
+      </div>
+
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <label class="text-xs font-semibold text-slate-700">Durum Değiştir:</label>
+          <select id="modal-status-select" class="px-2.5 py-1 bg-white border border-slate-300 rounded text-xs font-semibold font-mono">
+            <option value="Yeni">Yeni</option>
+            <option value="İnceleniyor">İnceleniyor</option>
+            <option value="Onaylandı">Onaylandı</option>
+            <option value="İmalatta">İmalatta</option>
+            <option value="Sevk Edildi">Sevk Edildi</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btn-modal-wa-send" class="px-3.5 py-1.5 bg-[#25D366] text-white hover:bg-[#20ba59] rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
+            <span>WhatsApp'tan İlet</span>
+          </button>
+          <button id="btn-modal-save-rfq" class="px-4 py-1.5 bg-[#0284C7] hover:bg-[#0369a1] text-white rounded-lg text-xs font-bold transition-all">
+            Kaydet & Güncelle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

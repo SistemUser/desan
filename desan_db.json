@@ -1,0 +1,202 @@
+{
+  "admin_credentials": {
+    "username": "desan",
+    "password": "654321"
+  },
+  "currencies": {
+    "base": "TRY",
+    "selected": "TRY",
+    "auto_sync": true,
+    "interval_min": 15,
+    "api_source": "open.er-api.com",
+    "rates": {
+      "TRY": 1.0,
+      "USD": 38.50,
+      "EUR": 42.20
+    },
+    "symbols": {
+      "TRY": "₺",
+      "USD": "$",
+      "EUR": "€"
+    },
+    "last_updated": "2026-09-15"
+  },
+  "exchange_rate": {
+    "usd_try": 38.50,
+    "eur_try": 42.20,
+    "last_updated": "2026-09-15",
+    "auto_sync": true,
+    "interval_min": 15,
+    "api_source": "open.er-api.com"
+  },
+  "pricing_formulas": {
+    "belt_base_rates": {
+      "RUB": 4250,
+      "PVC": 2600,
+      "PU": 3800,
+      "GRP": 3400
+    },
+    "splice_costs": {
+      "SP": 1450,
+      "MK": 450,
+      "RO": 0
+    },
+    "roller_base_formula": "280 + (d * 2.1) + (L * 0.55) + (mil * 3) + coating_extra",
+    "b2b_discount_percent": 15,
+    "vat_percent": 20
+  },
+  "quotes_archive": [
+    {
+      "id": "RFQ-2026-001",
+      "company": "Ods Madencilik ve Lojistik A.Ş.",
+      "contact_person": "Ahmet Yılmaz (Satınalma Md.)",
+      "phone": "+90 532 100 20 30",
+      "email": "ahmet.yilmaz@odsmadencilik.com",
+      "tax_office": "Gebze V.D. / 6380192831",
+      "items_count": 3,
+      "items": [
+        {
+          "title": "EP 400/3 4+2 Antistatik Kauçuk Bant",
+          "desc": "Genişlik: 800mm, Kalınlık: 10mm, Aşınma Dayanımlı",
+          "qty": 150,
+          "unit": "m",
+          "unitPrice": 1240
+        },
+        {
+          "title": "Taşıyıcı Rulo İstasyonu – Üçlü",
+          "desc": "Çap: Ø89mm, Boru: 315mm, Şase Genişliği: 800mm",
+          "qty": 45,
+          "unit": "ad",
+          "unitPrice": 850
+        },
+        {
+          "title": "UCP 210 Yataklı Rulman",
+          "desc": "Mil Çapı: 50mm, Pik Döküm Gövde, Ağır Hizmet",
+          "qty": 12,
+          "unit": "ad",
+          "unitPrice": 1120
+        }
+      ],
+      "subtotal": 237690,
+      "discount_percent": 15,
+      "vat_percent": 20,
+      "total_try": 242443.80,
+      "date": "2026-09-15 14:30",
+      "status": "Yeni"
+    },
+    {
+      "id": "RFQ-2026-002",
+      "company": "Ege Çimento Sanayi A.Ş.",
+      "contact_person": "Mehmet Demir (Tesis Md.)",
+      "phone": "+90 533 444 55 66",
+      "email": "m.demir@egecimento.com.tr",
+      "tax_office": "Alsancak V.D. / 3290182741",
+      "items_count": 1,
+      "items": [
+        {
+          "title": "Özel İmalat Tahrik/Gergi Tamburu (DSN-TMB-D406-L950)",
+          "desc": "Gövde: Ø406mm, L: 950mm, Mil: 1150mm, Baklava Desen Kauçuk Kaplama",
+          "qty": 2,
+          "unit": "ad",
+          "unitPrice": 18500
+        }
+      ],
+      "subtotal": 37000,
+      "discount_percent": 15,
+      "vat_percent": 20,
+      "total_try": 37740.00,
+      "date": "2026-09-14 11:15",
+      "status": "İnceleniyor"
+    },
+    {
+      "id": "RFQ-2026-003",
+      "company": "Kocaeli Agrega ve Kırma Tesisleri",
+      "contact_person": "Mustafa Kaya (Bakım Şefi)",
+      "phone": "+90 535 777 88 99",
+      "email": "m.kaya@kocaeliagrega.com",
+      "tax_office": "İzmit V.D. / 5192837461",
+      "items_count": 1,
+      "items": [
+        {
+          "title": "Özel Kesim Bant (DSN-RUB-EP400-W800-L50000-SP)",
+          "desc": "Genişlik: 800mm, Metraj: 50m, SICAK EK",
+          "qty": 1,
+          "unit": "hat",
+          "unitPrice": 261538
+        }
+      ],
+      "subtotal": 261538,
+      "discount_percent": 20,
+      "vat_percent": 20,
+      "total_try": 251076.48,
+      "date": "2026-09-12 09:45",
+      "status": "Onaylandı"
+    }
+  ],
+  "customer_accounts": [
+    {
+      "id": "CUST-001",
+      "company_name": "Ods Madencilik ve Lojistik A.Ş.",
+      "tax_office": "Gebze V.D.",
+      "tax_no": "6380192831",
+      "address": "Dilovası OSB 3. Kısım No:14 Kocaeli",
+      "contact": "Ahmet Yılmaz",
+      "phone": "+90 532 100 20 30",
+      "discount_percent": 15
+    },
+    {
+      "id": "CUST-002",
+      "company_name": "Ege Çimento Sanayi A.Ş.",
+      "tax_office": "Alsancak V.D.",
+      "tax_no": "3290182741",
+      "address": "Aliağa Sanayi Bölgesi No:42 İzmir",
+      "contact": "Mehmet Demir",
+      "phone": "+90 533 444 55 66",
+      "discount_percent": 18
+    },
+    {
+      "id": "CUST-003",
+      "company_name": "Kocaeli Agrega ve Kırma Tesisleri",
+      "tax_office": "İzmit V.D.",
+      "tax_no": "5192837461",
+      "address": "Körfez Sanayi Sitesi No:88 Kocaeli",
+      "contact": "Mustafa Kaya",
+      "phone": "+90 535 777 88 99",
+      "discount_percent": 20
+    }
+  ],
+  "products_stock": [
+    { "id": "P-101", "name": "SNH 511-609 Yatak Gövdesi", "category": "SNH Bloklar", "stock_status": "in_stock", "unit_price": 2180, "bulk_price_10": 1980 },
+    { "id": "P-102", "name": "UCP 208 Döküm Ayaklı Rulman", "category": "UCP Yataklar", "stock_status": "in_stock", "unit_price": 450, "bulk_price_10": 410 },
+    { "id": "P-103", "name": "Poliüretan Primer Bant Sıyırıcı", "category": "PU Sıyırıcılar", "stock_status": "on_order", "unit_price": 4200, "bulk_price_10": 3800 },
+    { "id": "P-104", "name": "UCF 210 Dört Cıvatalı Flanşlı Yatak", "category": "UCF Flanşlar", "stock_status": "in_stock", "unit_price": 590, "bulk_price_10": 520 },
+    { "id": "P-105", "name": "H-Serisi Konik Germe Manşonu", "category": "Manşon", "stock_status": "in_stock", "unit_price": 210, "bulk_price_10": 180 },
+    { "id": "P-106", "name": "Sekonder Karbür Uçlu Ağır Hizmet Sıyırıcı", "category": "PU Sıyırıcılar", "stock_status": "in_stock", "unit_price": 8400, "bulk_price_10": 7600 }
+  ],
+  "service_appointments": [
+    {
+      "id": "SRV-101",
+      "company": "Ods Madencilik ve Lojistik A.Ş.",
+      "district": "Dilovası OSB / Kocaeli",
+      "service_type": "Sıcak Vulkanizasyon Pres Hizmeti",
+      "target_date": "2026-09-18",
+      "status": "Saha Ekibi Atandı",
+      "notes": "1200mm EP800 bant yerinde birleştirme pres ek"
+    },
+    {
+      "id": "SRV-102",
+      "company": "Kocaeli Agrega Tesisleri",
+      "district": "Körfez / Kocaeli",
+      "service_type": "Bant Değişimi & Tambur Kaplama Keşfi",
+      "target_date": "2026-09-20",
+      "status": "İncelemede",
+      "notes": "Aşınan 50m bandın sökülüp yeni soğuk ek ile montajı"
+    }
+  ],
+  "site_settings": {
+    "trust_badges_text": "ISO 9001:2015 Sertifikalı | 7/24 Teknik Saha Desteği | İkitelli İmalat Tesisi",
+    "working_hours": "Pzt - Cmt: 08:00 - 18:30 (Pazar Nöbetçi Saha Servisi)",
+    "phone_gsm": "+90 532 707 52 81",
+    "whatsapp_no": "905327075281"
+  }
+}

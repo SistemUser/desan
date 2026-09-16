@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+html {
+  scroll-padding-top: 120px;
+}
+
+/* Industrial Button System - Proportional radius, padding and tactile feedback */
+.btn-industrial-nav {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.625rem 1.25rem !important; /* 10px vert, 20px horiz -> exact 2:1 ratio */
+  border-radius: 10px !important; /* 10px rounded */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.btn-industrial-nav:hover {
+  background-color: #0369a1 !important;
+  box-shadow: 0 4px 10px -1px rgba(2, 132, 199, 0.3);
+  transform: translateY(-1px);
+}
+.btn-industrial-nav:active {
+  transform: scale(0.96) translateY(0);
+}
+
+.btn-industrial-primary {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  padding: 0.8125rem 1.625rem !important; /* 13px vert, 26px horiz -> exact 2:1 ratio */
+  border-radius: 10px !important; /* 10px rounded */
+  box-shadow: 0 2px 5px 0 rgba(2, 132, 199, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.625rem !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.btn-industrial-primary:hover {
+  background-color: #0369a1 !important;
+  box-shadow: 0 6px 16px -2px rgba(2, 132, 199, 0.35);
+  transform: translateY(-1px);
+}
+.btn-industrial-primary:active {
+  transform: scale(0.96) translateY(0);
+}
+
+.btn-industrial-secondary {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 0.8125rem 1.5rem !important; /* 13px vert, 24px horiz */
+  border-radius: 10px !important; /* 10px rounded */
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.625rem !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.btn-industrial-secondary:hover {
+  background-color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+.btn-industrial-secondary:active {
+  transform: scale(0.96) translateY(0);
+}
+
+/* Ensure material symbols render crisp and properly aligned */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Button hover feedback */
+button:not(:disabled), a[role="button"], a.cursor-pointer {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   A4 PROFORMA YAZDIRMA / PRINT CSS KURALLARI
+   ========================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 12mm 12mm;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Sayfa yazdırılırken gizlenecek bileşenler */
+  header,
+  footer,
+  #whatsapp-quick-support,
+  #desan-toast-container,
+  #mobile-menu-drawer,
+  #mobile-menu-backdrop,
+  .no-print,
+  #view-sepet,
+  [data-page] {
+    display: none !important;
+  }
+
+  /* Sadece resmi proforma şablonunu göster ve A4 boyutunda hizala */
+  #proforma-print-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-flex {
+    display: flex !important;
+  }
+
+  .print-grid {
+    display: grid !important;
+  }
+}
+
+/* Analog Signal Tab Pulse Effect (WhatsApp Green) */
+@keyframes analogSweep {
+  0% {
+    left: -40%;
+    opacity: 0.1;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0.1;
+  }
+}
+
+@keyframes analogGlowBreath {
+  0%, 100% {
+    box-shadow: 0 2px 6px -1px rgba(37, 211, 102, 0.25);
+  }
+  50% {
+    box-shadow: 0 4px 14px 1px rgba(37, 211, 102, 0.6), 0 0 8px rgba(37, 211, 102, 0.45);
+  }
+}
+
+.analog-signal-tab {
+  position: relative;
+  overflow: hidden;
+  animation: analogGlowBreath 2.6s ease-in-out infinite;
+}
+
+.analog-signal-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -40%;
+  width: 45%;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, #34d399, #25D366, transparent);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px #25D366, 0 0 4px #20ba59;
+  animation: analogSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.analog-signal-tab.active {
+  background-color: #ffffff !important;
+  color: #059669 !important;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3) !important;
+}
+
+.analog-signal-tab.active::after {
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: #25D366;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.85), 0 0 6px #20ba59;
+  animation: none;
+  opacity: 1;
+}
+

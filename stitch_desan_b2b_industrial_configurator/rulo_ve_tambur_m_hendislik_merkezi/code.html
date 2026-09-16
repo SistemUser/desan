@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Özel İmalat Rulo ve Tambur Mühendislik Merkezi | Desan Konveyör</title>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        background-color: #f8f9ff;
+        background-image: linear-gradient(rgba(2, 132, 199, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "cobalt": "#0284c7",
+            "cobalt-dark": "#0369a1",
+            "cobalt-light": "#e0f2fe",
+            "industrial-slate": "#0F172A",
+            "text-muted": "#64748B",
+            "surface-card": "#ffffff",
+            "border-subtle": "#e2e8f0"
+          },
+          fontFamily: {
+            sans: ["'Plus Jakarta Sans'", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#f8f9ff] font-sans text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+<!-- ================= UNIFIED GLOBAL HEADER ================= -->
+<header class="w-full z-50 sticky top-0 shadow-sm bg-white border-b border-slate-200">
+<!-- Layer 1: Top bar -->
+<div class="bg-[#f1f5f9] text-slate-700 font-mono text-xs py-2 px-8 flex flex-wrap justify-between items-center border-b border-slate-200">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5 font-semibold text-slate-800">
+<span class="material-symbols-outlined text-[15px] text-[#0284C7]">verified</span>
+<span>Desan Makina San. Tic.</span>
+</span>
+<span class="hidden md:flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[15px] text-slate-400">factory</span>
+<span>Atölye: İkitelli OSB Atatürk Oto San. Sit. 19. Sk. No:545</span>
+</span>
+<span class="hidden lg:flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[15px] text-emerald-600">local_shipping</span>
+<span>İstanbul İçi Planlı Montaj &amp; Ambar Sevk</span>
+</span>
+</div>
+<div class="flex items-center gap-5">
+<!-- Currency toggle -->
+<div class="flex items-center border border-slate-300 rounded overflow-hidden bg-white text-[11px]">
+<button class="px-2.5 py-0.5 bg-[#0284C7] text-white font-bold">₺ TL</button>
+<button class="px-2.5 py-0.5 hover:bg-slate-100 text-slate-600 transition-colors">$ USD</button>
+</div>
+<a class="hover:text-[#0284C7] transition-colors text-slate-600 font-medium" href="#">Kurumsal Cari Girişi</a>
+<a class="flex items-center gap-1.5 text-[#0284C7] font-semibold hover:text-sky-700 transition-colors" href="#">
+<span class="material-symbols-outlined text-[17px]">shopping_cart</span>
+<span>Teklif Sepetim (0 Kalem)</span>
+</a>
+</div>
+</div>
+<!-- Layer 2: Main Navigation -->
+<div class="bg-white h-20 px-8 flex justify-between items-center max-w-[1440px] mx-auto">
+<!-- Left: Logo -->
+<a class="flex items-center gap-3 shrink-0 group" href="#">
+<div class="w-10 h-10 rounded bg-[#0284C7] flex items-center justify-center text-white shadow-md group-hover:bg-[#0369a1] transition-colors">
+<span class="font-mono font-black text-xl tracking-tighter">D</span>
+</div>
+<div class="flex flex-col">
+<span class="font-extrabold text-xl tracking-tight text-[#0F172A] leading-tight">DESAN</span>
+<span class="text-[11px] font-mono text-slate-500 tracking-wider uppercase">Makina ve Konveyör</span>
+</div>
+</a>
+<!-- Center: Navigation links -->
+<nav class="hidden xl:flex items-center gap-8 font-mono text-sm text-slate-800 font-medium">
+<a class="hover:text-[#0284C7] py-1 transition-colors" href="#">Ana Sayfa</a>
+<a class="hover:text-[#0284C7] py-1 transition-colors" href="#">Konveyör Bantları</a>
+<a class="text-[#0284C7] font-bold border-b-2 border-[#0284C7] pb-1 transition-colors" href="#">Rulolar &amp; İstasyonlar</a>
+<a class="hover:text-[#0284C7] py-1 transition-colors" href="#">Tamburlar &amp; Güç Aktarımı</a>
+<a class="hover:text-[#0284C7] py-1 transition-colors" href="#">Yataklı Rulmanlar</a>
+<a class="hover:text-[#0284C7] py-1 transition-colors" href="#">İstanbul Atölye</a>
+</nav>
+<!-- Right: Primary Action -->
+<div class="flex items-center shrink-0">
+<button class="bg-[#0284C7] hover:bg-sky-700 text-white font-mono text-sm font-semibold px-5 py-2.5 rounded shadow-sm hover:shadow flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[17px]">architecture</span>
+<span>[ 📐 Özel Ölçü Teklif Al ]</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="w-full max-w-[1440px] mx-auto px-4 lg:px-8 py-8 flex-1">
+<!-- Breadcrumb & Header Title -->
+<div class="mb-8">
+<div class="flex items-center gap-2 font-mono text-[11px] text-slate-500 uppercase tracking-wider mb-2">
+<a class="hover:text-[#0284C7] transition-colors" href="#">Ana Sayfa</a>
+<span>&gt;</span>
+<a class="hover:text-[#0284C7] transition-colors" href="#">Rulolar &amp; İstasyonlar</a>
+<span>&gt;</span>
+<span class="text-[#0284C7] font-semibold">Özel İmalat Merkezi</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-6">
+<div>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-sky-50 text-[#0284C7] font-mono text-xs font-semibold uppercase tracking-wider mb-2 border border-sky-200">
+<span>[ TEKNİK ÇİZİM &amp; İMALAT SPESİFİKASYONU ]</span>
+</div>
+<div class="flex items-center gap-3 mb-2">
+<span class="w-2.5 h-8 bg-[#0284C7] rounded-sm"></span>
+<h1 class="font-extrabold text-2xl lg:text-3xl text-[#0F172A] tracking-tight">Özel İmalat Rulo ve Tambur Mühendislik Merkezi</h1>
+</div>
+<p class="text-sm text-slate-600 max-w-3xl leading-relaxed">
+            DIN 22107 standartlarında ağır sanayi taşıyıcı rulo, darbe istasyonu ve tambur imalatı. Mil ucu tornalama ve kaplama seçenekleri ile atölye onaylı parametrik üretim.
+          </p>
+</div>
+<div class="flex items-center gap-2 text-xs font-mono bg-white px-3 py-1.5 rounded-full border border-emerald-200 shadow-sm text-emerald-800">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Atölye Kapasitesi: <strong>Aktif / Vardiya 1</strong></span>
+</div>
+</div>
+</div>
+<!-- Top Tab Switcher -->
+<div class="flex justify-start mb-8">
+<div class="inline-flex p-1.5 bg-white border border-slate-200 rounded-lg shadow-sm max-w-xl gap-2">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-mono font-semibold bg-sky-50 text-[#0284C7] border border-sky-300 shadow-sm transition-all" id="tab-rulo">
+<span class="text-base">⚙️</span>
+<span>[ ⚙️ 1. Taşıyıcı &amp; Darbe Ruloları ]</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-md text-sm font-mono font-medium text-slate-600 hover:bg-slate-50 border border-transparent transition-all" id="tab-tambur">
+<span class="text-base">🔄</span>
+<span>[ 🔄 2. Tahrik &amp; Gergi Tamburları ]</span>
+</button>
+</div>
+</div>
+<!-- Main Content Grid (Left 7 cols, Right 5 cols sticky) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Engineering Configuration (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- CARD 1: Ana Ölçüler ve Canlı CAD Şematiği -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8 relative overflow-hidden">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center w-7 h-7 rounded bg-[#e0f2fe] text-[#0284C7] font-mono text-xs font-bold">01</span>
+<h2 class="font-bold text-lg text-[#0F172A]">01. Ana Ölçüler ve Canlı CAD Şematiği</h2>
+</div>
+<span class="font-mono text-[11px] bg-slate-100 text-slate-600 px-2.5 py-1 rounded border border-slate-200">CAD / DIN 22107 Standardı</span>
+</div>
+<!-- High-fidelity 2D Blueprint SVG Schematic -->
+<div class="relative w-full bg-slate-50/90 rounded-lg p-4 border border-slate-200 mb-6 flex flex-col items-center justify-center overflow-x-auto" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 16px 16px;">
+<div class="w-full max-w-[580px] py-2">
+<svg class="w-full h-auto text-slate-700 select-none" fill="none" viewbox="0 0 580 200" xmlns="http://www.w3.org/2000/svg">
+<!-- Centerline -->
+<line stroke="#94a3b8" stroke-dasharray="8 4 2 4" stroke-width="1" x1="20" x2="560" y1="100" y2="100"></line>
+<!-- Shaft (Mil) -->
+<rect fill="#f1f5f9" height="28" rx="2" stroke="#334155" stroke-width="2" width="500" x="40" y="86"></rect>
+<!-- Shaft machined flats (freze) -->
+<path d="M 40 86 L 60 86 L 60 114 L 40 114 Z" fill="#e2e8f0" stroke="#0284C7" stroke-width="1.5"></path>
+<path d="M 520 86 L 540 86 L 540 114 L 520 114 Z" fill="#e2e8f0" stroke="#0284C7" stroke-width="1.5"></path>
+<!-- Roller Shell (Boru Gövdesi) -->
+<rect fill="#ffffff" height="110" rx="3" stroke="#0F172A" stroke-width="2.5" width="320" x="130" y="45"></rect>
+<!-- Bearing housing caps (Rulman kapağı & labirent) -->
+<rect fill="#e0f2fe" height="90" rx="2" stroke="#0284C7" stroke-width="1.5" width="14" x="130" y="55"></rect>
+<rect fill="#e0f2fe" height="90" rx="2" stroke="#0284C7" stroke-width="1.5" width="14" x="436" y="55"></rect>
+<!-- Hatching details on roller body -->
+<line stroke="#f1f5f9" stroke-width="2" x1="150" x2="150" y1="45" y2="155"></line>
+<line stroke="#f1f5f9" stroke-width="2" x1="430" x2="430" y1="45" y2="155"></line>
+<!-- DIMENSION: L (Boru Boyu) Top Dimension -->
+<line stroke="#0284C7" stroke-width="1.5" x1="130" x2="450" y1="28" y2="28"></line>
+<polygon fill="#0284C7" points="130,28 138,25 138,31"></polygon>
+<polygon fill="#0284C7" points="450,28 442,25 442,31"></polygon>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="130" x2="130" y1="20" y2="45"></line>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="450" x2="450" y1="20" y2="45"></line>
+<rect fill="#ffffff" height="20" rx="3" stroke="#0284C7" stroke-width="1" width="115" x="232.5" y="18"></rect>
+<text fill="#0284C7" font-family="'JetBrains Mono'" font-size="11" font-weight="700" id="svg-text-l" text-anchor="middle" x="290" y="32">L: 315 mm</text>
+<!-- DIMENSION: A (Mil Boyu) Bottom Dimension -->
+<line stroke="#0284C7" stroke-width="1.5" x1="40" x2="540" y1="172" y2="172"></line>
+<polygon fill="#0284C7" points="40,172 48,169 48,175"></polygon>
+<polygon fill="#0284C7" points="540,172 532,169 532,175"></polygon>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="40" x2="40" y1="114" y2="180"></line>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="540" x2="540" y1="114" y2="180"></line>
+<rect fill="#ffffff" height="20" rx="3" stroke="#0284C7" stroke-width="1" width="115" x="232.5" y="162"></rect>
+<text fill="#0284C7" font-family="'JetBrains Mono'" font-size="11" font-weight="700" id="svg-text-a" text-anchor="middle" x="290" y="176">A: 345 mm</text>
+<!-- DIMENSION: D (Boru Çapı) Right Dimension -->
+<line stroke="#0284C7" stroke-width="1.5" x1="465" x2="465" y1="45" y2="155"></line>
+<polygon fill="#0284C7" points="465,45 462,53 468,53"></polygon>
+<polygon fill="#0284C7" points="465,155 462,147 468,147"></polygon>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="450" x2="475" y1="45" y2="45"></line>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="450" x2="475" y1="155" y2="155"></line>
+<rect fill="#ffffff" height="20" rx="3" stroke="#0284C7" stroke-width="1" width="85" x="475" y="90"></rect>
+<text fill="#0284C7" font-family="'JetBrains Mono'" font-size="11" font-weight="700" id="svg-text-d" text-anchor="middle" x="517" y="104">Ø D: 89 mm</text>
+<!-- DIMENSION: d (Mil Çapı) Left Dimension -->
+<line stroke="#0284C7" stroke-width="1.5" x1="25" x2="25" y1="86" y2="114"></line>
+<polygon fill="#0284C7" points="25,86 22,93 28,93"></polygon>
+<polygon fill="#0284C7" points="25,114 22,107 28,107"></polygon>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="40" x2="18" y1="86" y2="86"></line>
+<line stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1" x1="40" x2="18" y1="114" y2="114"></line>
+<text fill="#0284C7" font-family="'JetBrains Mono'" font-size="10" font-weight="700" id="svg-text-mil" text-anchor="end" x="16" y="104">Ød:20</text>
+</svg>
+</div>
+<div class="flex items-center gap-4 text-[11px] font-mono text-slate-500 mt-2">
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-[#0284C7] rounded-sm"></span> Mavi Çizgiler: Parametrik Canlı Ölçüler</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-slate-700 rounded-sm"></span> Gövde: DIN 2394 Kalibre Çelik Çekme</span>
+</div>
+</div>
+<!-- Dimension Inputs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+<!-- D: Boru Çapı -->
+<div class="space-y-1.5">
+<label class="block font-mono text-xs font-semibold text-slate-700">
+                1. Boru Dış Çapı (D) (mm)
+              </label>
+<div class="relative">
+<select class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-xs font-mono text-[#0F172A] focus:outline-none focus:border-[#0284C7] focus:bg-white transition-colors cursor-pointer font-medium" id="select-d">
+<option value="60">Ø60 mm (Hafif Hizmet / Paketleme)</option>
+<option value="76">Ø76 mm (Orta Hizmet Konveyör)</option>
+<option selected="" value="89">Ø89 mm (Standart Ağır Hizmet)</option>
+<option value="108">Ø108 mm (Yüksek Debili Hatlar)</option>
+<option value="133">Ø133 mm (Maden ve Taş Ocağı)</option>
+<option value="159">Ø159 mm (Ekstra Ağır Şart)</option>
+</select>
+</div>
+</div>
+<!-- d: Mil Çapı -->
+<div class="space-y-1.5">
+<label class="block font-mono text-xs font-semibold text-slate-700">
+                2. Mil Çapı &amp; Rulman (d) (mm)
+              </label>
+<div class="relative">
+<select class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-xs font-mono text-[#0F172A] focus:outline-none focus:border-[#0284C7] focus:bg-white transition-colors cursor-pointer font-medium" id="select-mil">
+<option selected="" value="20">Ø20 mm (6204 2RS C3)</option>
+<option value="25">Ø25 mm (6205 2RS C3)</option>
+<option value="30">Ø30 mm (6206 2RS C3)</option>
+<option value="35">Ø35 mm (6207 2RS C3)</option>
+</select>
+</div>
+</div>
+<!-- L: Boru Boyu -->
+<div class="space-y-1.5">
+<label class="block font-mono text-xs font-semibold text-slate-700 flex justify-between">
+<span>3. Boru Boyu (L, mm)</span>
+<span class="text-slate-400 font-normal">Aralık: 150 - 2200 mm</span>
+</label>
+<div class="relative">
+<input class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-xs font-mono font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7] focus:bg-white transition-colors" id="input-l" max="2200" min="150" type="number" value="315"/>
+<span class="absolute right-3 top-2.5 text-xs font-mono text-slate-400">mm</span>
+</div>
+</div>
+<!-- A: Mil Boyu -->
+<div class="space-y-1.5">
+<label class="block font-mono text-xs font-semibold text-slate-700 flex justify-between">
+<span>4. Mil Boyu (A, mm)</span>
+<span class="text-slate-400 font-normal">Kural: A ≥ L + 30 mm</span>
+</label>
+<div class="relative">
+<input class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-xs font-mono font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7] focus:bg-white transition-colors" id="input-a" max="2300" min="180" type="number" value="345"/>
+<span class="absolute right-3 top-2.5 text-xs font-mono text-slate-400">mm</span>
+</div>
+</div>
+</div>
+<!-- Dynamic Tolerance Alert / Status Pill -->
+<div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between text-xs font-mono text-emerald-800 transition-all" id="validation-box">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-emerald-600">check_circle</span>
+<span><strong>✓ Tolerans Kontrolü:</strong> Mil Boyu (A), Boru Boyundan (L) en az 30 mm uzun olmalıdır. (Mevcut Fark: <strong id="diff-span">30 mm</strong>) - İMALATA UYGUN</span>
+</div>
+<span class="bg-emerald-600 text-white text-[10px] uppercase font-bold px-2.5 py-0.5 rounded tracking-wide">Geçerli</span>
+</div>
+</div>
+<!-- CARD 2: Mil Ucu İşleme Tipi -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center w-7 h-7 rounded bg-[#e0f2fe] text-[#0284C7] font-mono text-xs font-bold">02</span>
+<h2 class="font-bold text-lg text-[#0F172A]">02. Mil Ucu İşleme Tipi (Şase Montaj İstasyonu Uyumu)</h2>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Tornalama &amp; Freze</span>
+</div>
+<!-- 4 Radio Cards with Technical Blueprints -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6" id="mil-ucu-container">
+<!-- Radio 1: Frezeli (Checked Default) -->
+<label class="relative block border-2 border-[#0284C7] bg-[#f0f9ff] rounded-lg p-4 cursor-pointer hover:shadow-sm transition-all group mil-card" data-code="F" data-title="Frezeli (Düz Yüzey)">
+<input checked="" class="sr-only" name="mil-ucu" type="radio" value="Frezeli (14 × 15 mm)"/>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded-full border-2 border-[#0284C7] bg-[#0284C7] flex items-center justify-center radio-dot">
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+<span class="font-bold text-sm text-[#0F172A]">Tip 1: Frezeli (Düz Yüzey)</span>
+</div>
+<span class="text-[10px] font-mono bg-[#0284C7] text-white px-2 py-0.5 rounded font-medium">Standart</span>
+</div>
+<div class="h-16 bg-white rounded border border-sky-200 p-2 flex items-center justify-center mb-3">
+<svg class="w-full h-full text-slate-600" fill="none" viewbox="0 0 160 40">
+<rect fill="#f8fafc" height="20" stroke="#475569" stroke-width="1.5" width="140" x="10" y="10"></rect>
+<rect fill="#bae6fd" height="14" stroke="#0284C7" stroke-width="1" width="24" x="10" y="13"></rect>
+<rect fill="#bae6fd" height="14" stroke="#0284C7" stroke-width="1" width="24" x="126" y="13"></rect>
+<line stroke="#0284C7" stroke-dasharray="2 1" x1="22" x2="22" y1="8" y2="32"></line>
+<line stroke="#0284C7" stroke-dasharray="2 1" x1="138" x2="138" y1="8" y2="32"></line>
+<text fill="#0284C7" font-family="'JetBrains Mono'" font-size="8" text-anchor="middle" x="80" y="24">Anahtar Ağzı SW: 14mm</text>
+</svg>
+</div>
+<p class="text-[11px] text-slate-500 font-mono">Standart NPU / profil şaselerdeki rulo yuvalarına geçmeli montaj.</p>
+</label>
+<!-- Radio 2: İçten Kılavuz -->
+<label class="relative block border border-slate-200 bg-white rounded-lg p-4 cursor-pointer hover:border-slate-300 hover:bg-slate-50 transition-all group mil-card" data-code="K" data-title="İçten Kılavuzlu">
+<input class="sr-only" name="mil-ucu" type="radio" value="İçten Kılavuz Çekilmiş (M12/M16)"/>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded-full border border-slate-300 bg-white flex items-center justify-center radio-dot"></div>
+<span class="font-bold text-sm text-[#0F172A]">Tip 2: İçten Kılavuz Çekilmiş</span>
+</div>
+<span class="text-[10px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Dişi Diş</span>
+</div>
+<div class="h-16 bg-slate-50 rounded border border-slate-200 p-2 flex items-center justify-center mb-3">
+<svg class="w-full h-full text-slate-600" fill="none" viewbox="0 0 160 40">
+<rect fill="#ffffff" height="20" stroke="#475569" stroke-width="1.5" width="140" x="10" y="10"></rect>
+<path d="M 10 15 L 30 15 L 25 25 L 10 25" stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1.2"></path>
+<path d="M 150 15 L 130 15 L 135 25 L 150 25" stroke="#0284C7" stroke-dasharray="2 2" stroke-width="1.2"></path>
+<text fill="#475569" font-family="'JetBrains Mono'" font-size="8" text-anchor="middle" x="80" y="24">M12 / M16 Metrik Diş</text>
+</svg>
+</div>
+<p class="text-[11px] text-slate-500 font-mono">Şaseye dıştan cıvatalı rijit sabitleme için iç dişli mil.</p>
+</label>
+<!-- Radio 3: Dıştan Helisel Paso -->
+<label class="relative block border border-slate-200 bg-white rounded-lg p-4 cursor-pointer hover:border-slate-300 hover:bg-slate-50 transition-all group mil-card" data-code="D" data-title="Dıştan Dişli">
+<input class="sr-only" name="mil-ucu" type="radio" value="Dıştan Helisel Paso (Somunlu)"/>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded-full border border-slate-300 bg-white flex items-center justify-center radio-dot"></div>
+<span class="font-bold text-sm text-[#0F172A]">Tip 3: Dıştan Helisel Paso</span>
+</div>
+<span class="text-[10px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Erkek Diş</span>
+</div>
+<div class="h-16 bg-slate-50 rounded border border-slate-200 p-2 flex items-center justify-center mb-3">
+<svg class="w-full h-full text-slate-600" fill="none" viewbox="0 0 160 40">
+<rect fill="#ffffff" height="20" stroke="#475569" stroke-width="1.5" width="100" x="30" y="10"></rect>
+<rect fill="#e0f2fe" height="14" stroke="#0284C7" stroke-width="1" width="20" x="10" y="13"></rect>
+<line stroke="#0284C7" x1="14" x2="14" y1="13" y2="27"></line>
+<line stroke="#0284C7" x1="18" x2="18" y1="13" y2="27"></line>
+<line stroke="#0284C7" x1="22" x2="22" y1="13" y2="27"></line>
+<rect fill="#e0f2fe" height="14" stroke="#0284C7" stroke-width="1" width="20" x="130" y="13"></rect>
+<line stroke="#0284C7" x1="134" x2="134" y1="13" y2="27"></line>
+<line stroke="#0284C7" x1="138" x2="138" y1="13" y2="27"></line>
+<line stroke="#0284C7" x1="142" x2="142" y1="13" y2="27"></line>
+<text fill="#475569" font-family="'JetBrains Mono'" font-size="8" text-anchor="middle" x="80" y="24">Somun ve Rondela</text>
+</svg>
+</div>
+<p class="text-[11px] text-slate-500 font-mono">Dış uçlara somun ve rondela sıkılarak şaseye kilitlenen tip.</p>
+</label>
+<!-- Radio 4: Segman Kanallı -->
+<label class="relative block border border-slate-200 bg-white rounded-lg p-4 cursor-pointer hover:border-slate-300 hover:bg-slate-50 transition-all group mil-card" data-code="S" data-title="Segman Kanallı">
+<input class="sr-only" name="mil-ucu" type="radio" value="Segman Kanallı (DIN 471)"/>
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-4 h-4 rounded-full border border-slate-300 bg-white flex items-center justify-center radio-dot"></div>
+<span class="font-bold text-sm text-[#0F172A]">Tip 4: Segman Kanallı</span>
+</div>
+<span class="text-[10px] font-mono text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">DIN 471</span>
+</div>
+<div class="h-16 bg-slate-50 rounded border border-slate-200 p-2 flex items-center justify-center mb-3">
+<svg class="w-full h-full text-slate-600" fill="none" viewbox="0 0 160 40">
+<rect fill="#ffffff" height="20" stroke="#475569" stroke-width="1.5" width="140" x="10" y="10"></rect>
+<rect fill="#38bdf8" height="24" stroke="#0284C7" width="4" x="22" y="8"></rect>
+<rect fill="#38bdf8" height="24" stroke="#0284C7" width="4" x="134" y="8"></rect>
+<text fill="#475569" font-family="'JetBrains Mono'" font-size="8" text-anchor="middle" x="80" y="24">Emniyet Segman Yuvası</text>
+</svg>
+</div>
+<p class="text-[11px] text-slate-500 font-mono">Emniyet yaylı segman ile eksenel kaymayı önleyen montaj.</p>
+</label>
+</div>
+<!-- Machining details inputs -->
+<div class="bg-slate-50 p-4 rounded-lg border border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-mono text-xs text-slate-600 mb-1">Anahtar Ağzı (SW mm)</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs font-mono text-[#0F172A] focus:outline-none focus:border-[#0284C7]" id="input-sw" type="text" value="14"/>
+<span class="absolute right-3 top-2 text-xs font-mono text-slate-400">mm</span>
+</div>
+</div>
+<div>
+<label class="block font-mono text-xs text-slate-600 mb-1">Freze Boyu (mm)</label>
+<div class="relative">
+<input class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs font-mono text-[#0F172A] focus:outline-none focus:border-[#0284C7]" id="input-freze" type="text" value="15"/>
+<span class="absolute right-3 top-2 text-xs font-mono text-slate-400">mm</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 3: Boru Yüzeyi & Aşınma Koruma Kaplaması -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center w-7 h-7 rounded bg-[#e0f2fe] text-[#0284C7] font-mono text-xs font-bold">03</span>
+<h2 class="font-bold text-lg text-[#0F172A]">03. Boru Yüzeyi &amp; Aşınma Koruma Kaplaması</h2>
+</div>
+<span class="font-mono text-[11px] text-slate-500">Yüzey Şartları</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="kaplama-container">
+<!-- Option 1: Düz Çelik Boru (Selected) -->
+<label class="relative block border-2 border-[#0284C7] bg-[#f0f9ff] rounded-lg p-4 cursor-pointer transition-all kaplama-card" data-extra="0" data-name="Düz Çelik / Korozyon Önleyici Astar">
+<input checked="" class="sr-only" name="kaplama" type="radio" value="Düz Çelik Boru"/>
+<div class="w-8 h-8 rounded bg-[#0284C7]/10 text-[#0284C7] flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+</div>
+<h4 class="font-bold text-sm text-[#0F172A] mb-1">Düz Çelik Boru</h4>
+<p class="font-mono text-[11px] text-slate-600 mb-2">DIN 2394 Kalibre Çelik</p>
+<span class="inline-block text-[10px] font-mono bg-[#0284C7] text-white px-2 py-0.5 rounded font-medium">Standart Konveyör</span>
+</label>
+<!-- Option 2: Kauçuk Darbe Halkalı -->
+<label class="relative block border border-slate-200 bg-white rounded-lg p-4 cursor-pointer hover:border-slate-300 hover:bg-slate-50 transition-all kaplama-card" data-extra="160" data-name="Kauçuk Darbe Halkalı (65 Shore A)">
+<input class="sr-only" name="kaplama" type="radio" value="Kauçuk Darbe Halkalı"/>
+<div class="w-8 h-8 rounded bg-amber-100 text-amber-800 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">radio_button_checked</span>
+</div>
+<h4 class="font-bold text-sm text-[#0F172A] mb-1">Kauçuk Darbe Halkalı</h4>
+<p class="font-mono text-[11px] text-slate-600 mb-2">65 Shore A Döküş Şutu</p>
+<span class="inline-block text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Yüksek Sönümleme</span>
+</label>
+<!-- Option 3: Poliüretan Kaplamalı -->
+<label class="relative block border border-slate-200 bg-white rounded-lg p-4 cursor-pointer hover:border-slate-300 hover:bg-slate-50 transition-all kaplama-card" data-extra="240" data-name="Poliüretan Kaplama (90 Shore A)">
+<input class="sr-only" name="kaplama" type="radio" value="Poliüretan Kaplamalı"/>
+<div class="w-8 h-8 rounded bg-sky-100 text-[#0284C7] flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<h4 class="font-bold text-sm text-[#0F172A] mb-1">Poliüretan Kaplamalı</h4>
+<p class="font-mono text-[11px] text-slate-600 mb-2">90 Shore A Maden Şartı</p>
+<span class="inline-block text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">Aşındırıcı &amp; Nemli</span>
+</label>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Sticky Summary & Quote Card (5 Cols) -->
+<div class="lg:col-span-5">
+<div class="sticky top-28 bg-white rounded-xl border border-slate-200 shadow-md p-6 space-y-6">
+<!-- Card Header & Status -->
+<div class="flex items-center justify-between pb-4 border-b border-slate-100">
+<div>
+<h3 class="font-extrabold text-base text-[#0F172A] flex items-center gap-2">
+<span>📋 Teknik Özet &amp; Fiyatlandırma</span>
+</h3>
+<p class="font-mono text-[11px] text-slate-500 mt-0.5">Konfigüre Edilen Teknik Reçete</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200" id="badge-status">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Üretilebilir / Onaylı
+            </span>
+</div>
+<!-- Live Specification Table -->
+<div class="bg-slate-50 rounded-lg p-4 border border-slate-200/80 font-mono text-xs space-y-2.5">
+<div class="flex justify-between items-center text-slate-600 pb-2 border-b border-slate-200">
+<span>Ürün Grubu:</span>
+<span class="font-bold text-[#0F172A]">Taşıyıcı Ağır Sanayi Rulosu</span>
+</div>
+<div class="flex justify-between items-center text-slate-600">
+<span>Boru Çapı &amp; Kalınlık:</span>
+<span class="font-semibold text-slate-900" id="summary-d">Ø89 × 3.5 mm (DIN 2394)</span>
+</div>
+<div class="flex justify-between items-center text-slate-600">
+<span>Mil Çapı &amp; Rulman:</span>
+<span class="font-semibold text-slate-900" id="summary-mil">Ø20 mm (6204 2RS C3)</span>
+</div>
+<div class="flex justify-between items-center text-slate-600">
+<span>Boru Boyu (L):</span>
+<span class="font-semibold text-[#0284C7]" id="summary-l">315 mm</span>
+</div>
+<div class="flex justify-between items-center text-slate-600">
+<span>Mil Boyu (A):</span>
+<span class="font-semibold text-[#0284C7]" id="summary-a">345 mm</span>
+</div>
+<div class="flex justify-between items-center text-slate-600">
+<span>Mil Ucu:</span>
+<span class="font-semibold text-slate-900" id="summary-mil-ucu">Frezeli (14 × 15 mm)</span>
+</div>
+<div class="flex justify-between items-center text-slate-600 pt-2 border-t border-slate-200">
+<span>Boru Kaplama:</span>
+<span class="font-semibold text-slate-900" id="summary-kaplama">Düz Çelik / Korozyon Önleyici Astar</span>
+</div>
+</div>
+<!-- Dynamic SKU Badge -->
+<div class="p-3 bg-sky-50/70 border border-sky-200 rounded-lg flex items-center justify-between">
+<span class="font-mono text-[11px] text-sky-800 font-medium">Teknik Ürün Kodu (SKU):</span>
+<span class="font-mono text-xs font-bold text-[#0284C7] bg-white px-2 py-0.5 rounded border border-sky-200" id="sku-badge">DSN-ROL-D89-L315-A345-F14</span>
+</div>
+<!-- Quantity Stepper & Bulk Discount Note -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xs font-bold text-slate-700">Sipariş Adedi:</span>
+<div class="flex items-center border border-slate-300 rounded-lg overflow-hidden bg-white shadow-sm">
+<button class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-black font-mono font-bold transition-colors" id="btn-qty-minus">-</button>
+<input class="w-14 text-center font-mono text-xs font-bold text-[#0F172A] border-0 focus:ring-0 py-1.5" id="input-qty" min="1" type="number" value="1"/>
+<button class="px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-black font-mono font-bold transition-colors" id="btn-qty-plus">+</button>
+</div>
+</div>
+<p class="font-mono text-[11px] text-emerald-700 text-right" id="bulk-discount-note">
+              ✨ 25+ adette %10 proje iskontosu uygulanır.
+            </p>
+</div>
+<!-- Price Box -->
+<div class="bg-slate-100/70 rounded-lg p-4 border border-slate-200 space-y-1 text-right font-mono">
+<div class="flex justify-between items-center text-xs text-slate-500">
+<span>Birim Fiyat:</span>
+<span id="price-unit">₺ 685,00 / adet</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-slate-200">
+<span class="text-xs font-bold text-[#0F172A]">Toplam Tutar:</span>
+<div class="text-right">
+<span class="text-xl font-black text-[#0284C7]" id="price-total">₺ 685,00</span>
+<span class="block text-[10px] text-slate-500 font-normal">(KDV Hariç)</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-3 pt-2">
+<button class="w-full bg-[#0284C7] hover:bg-sky-700 text-white font-mono font-semibold text-sm py-3.5 px-4 rounded-lg shadow-sm hover:shadow flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+<span>[ 🛒 Sepete Ekle ]</span>
+</button>
+<button class="w-full bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-mono text-xs font-medium py-2.5 px-4 rounded-lg shadow-sm flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-slate-500">download</span>
+<span>[ 📄 PDF Teknik Çizim İndir ]</span>
+</button>
+</div>
+<!-- Quality badge -->
+<div class="pt-3 border-t border-slate-100 flex items-center gap-2 text-[11px] font-mono text-slate-500 justify-center">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">verified_user</span>
+<span>✓ TSE / DIN Normlarına Göre İkitelli Tesisinde İmal Edilir</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= CORPORATE FOOTER ================= -->
+<footer class="w-full bg-[#f1f5f9] text-slate-700 pt-12 pb-12 border-t border-slate-200 mt-20">
+<div class="max-w-[1440px] mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- Col 1: About & Logo -->
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-[#0284C7] flex items-center justify-center text-white font-mono font-bold">D</div>
+<span class="font-extrabold text-base tracking-tight text-[#0F172A]">DESAN MAKİNA SAN. TİC.</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">
+        Ağır sanayi, maden ve tesis konveyör sistemlerinde Türkiye'nin güvenilir mühendislik ve üretim ortağı. İkitelli OSB'den tüm Türkiye'ye teknik destek, rulo ve bant tedariği.
+      </p>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-slate-200 rounded text-[11px] font-mono text-slate-700">
+<span class="material-symbols-outlined text-[14px] text-[#0284C7]">verified</span>
+<span>ISO 9001:2015 Belgeli İmalat</span>
+</div>
+</div>
+<!-- Col 2: Ürün Grupları -->
+<div class="space-y-3">
+<h4 class="text-[#0F172A] font-mono text-xs font-bold uppercase tracking-wider">Ürün Grupları</h4>
+<ul class="space-y-2 font-mono text-xs text-slate-600">
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">EP Serisi Kauçuk Bantlar</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors text-[#0284C7] font-semibold" href="#">Taşıyıcı ve Darbe Ruloları</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">Tahrik ve Kuyruk Tamburları</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">SNH &amp; UCP Yataklar</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">Sıyırıcı Sistemleri</a></li>
+</ul>
+</div>
+<!-- Col 3: Kurumsal & B2B -->
+<div class="space-y-3">
+<h4 class="text-[#0F172A] font-mono text-xs font-bold uppercase tracking-wider">Kurumsal &amp; B2B</h4>
+<ul class="space-y-2 font-mono text-xs text-slate-600">
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">B2B Bayi Girişi</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">2026 Teknik Katalog (PDF)</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">Banka Hesap Numaraları</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">Referans Projeler</a></li>
+<li><a class="hover:text-[#0284C7] transition-colors" href="#">Kalite Sertifikaları</a></li>
+</ul>
+</div>
+<!-- Col 4: İletişim & Atölye -->
+<div class="space-y-3">
+<h4 class="text-[#0F172A] font-mono text-xs font-bold uppercase tracking-wider">İletişim &amp; Atölye</h4>
+<div class="space-y-2 font-mono text-xs text-slate-600">
+<p class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0 mt-0.5">location_on</span>
+<span>İkitelli Organize Sanayi Bölgesi, Atatürk Oto Sanayi Sitesi 19. Sokak No:545 Başakşehir / İSTANBUL</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0">call</span>
+<span>+90 (212) 486 26 63</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0">fax</span>
+<span>+90 (212) 486 26 64</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0">phone_iphone</span>
+<span>+90 (532) 707 52 81</span>
+</p>
+<p class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-[#0284C7] shrink-0">mail</span>
+<span>info@desanmakina.net</span>
+</p>
+<div class="pt-1 flex items-center gap-2 text-emerald-700 font-semibold text-[11px]">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>09:00 - 18:30 Açık (Pazartesi - Cumartesi)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="max-w-[1440px] mx-auto px-4 lg:px-8 mt-12 pt-6 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500">
+<span>© 2026 Desan Makina San. Tic. Tüm Hakları Saklıdır.</span>
+<div class="flex gap-6">
+<a class="hover:text-slate-800 transition-colors" href="#">KVKK Aydınlatma Metni</a>
+<a class="hover:text-slate-800 transition-colors" href="#">Gizlilik Politikası</a>
+<a class="hover:text-slate-800 transition-colors" href="#">Çerez Politikası</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Vanilla JavaScript -->
+<script>
+    const selectD = document.getElementById('select-d');
+    const selectMil = document.getElementById('select-mil');
+    const inputL = document.getElementById('input-l');
+    const inputA = document.getElementById('input-a');
+    const inputSw = document.getElementById('input-sw');
+    const inputFreze = document.getElementById('input-freze');
+    const inputQty = document.getElementById('input-qty');
+    const btnQtyMinus = document.getElementById('btn-qty-minus');
+    const btnQtyPlus = document.getElementById('btn-qty-plus');
+
+    const svgTextL = document.getElementById('svg-text-l');
+    const svgTextA = document.getElementById('svg-text-a');
+    const svgTextD = document.getElementById('svg-text-d');
+    const svgTextMil = document.getElementById('svg-text-mil');
+
+    const summaryD = document.getElementById('summary-d');
+    const summaryMil = document.getElementById('summary-mil');
+    const summaryL = document.getElementById('summary-l');
+    const summaryA = document.getElementById('summary-a');
+    const summaryMilUcu = document.getElementById('summary-mil-ucu');
+    const summaryKaplama = document.getElementById('summary-kaplama');
+
+    const validationBox = document.getElementById('validation-box');
+    const diffSpan = document.getElementById('diff-span');
+    const skuBadge = document.getElementById('sku-badge');
+    const badgeStatus = document.getElementById('badge-status');
+    const priceUnit = document.getElementById('price-unit');
+    const priceTotal = document.getElementById('price-total');
+    const bulkDiscountNote = document.getElementById('bulk-discount-note');
+
+    let currentMilCode = 'F14';
+    let currentKaplamaExtra = 0;
+
+    function updateConfig() {
+      const d = selectD.value;
+      const mil = selectMil.value;
+      const l = parseInt(inputL.value) || 0;
+      const a = parseInt(inputA.value) || 0;
+      const qty = parseInt(inputQty.value) || 1;
+      const sw = inputSw.value.trim();
+      const freze = inputFreze.value.trim();
+
+      // Update SVG Labels
+      svgTextD.textContent = `Ø D: ${d} mm`;
+      svgTextMil.textContent = `Ød:${mil}`;
+      svgTextL.textContent = `L: ${l} mm`;
+      svgTextA.textContent = `A: ${a} mm`;
+
+      // Update Table
+      const dOptionText = selectD.options[selectD.selectedIndex].text;
+      const milOptionText = selectMil.options[selectMil.selectedIndex].text;
+      summaryD.textContent = `Ø${d} × 3.5 mm (DIN 2394)`;
+      summaryMil.textContent = milOptionText;
+      summaryL.textContent = `${l} mm`;
+      summaryA.textContent = `${a} mm`;
+
+      // Tolerance verification
+      const diff = a - l;
+      if (diff >= 30) {
+        validationBox.className = "p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between text-xs font-mono text-emerald-800 transition-all";
+        validationBox.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px] text-emerald-600">check_circle</span>
+            <span><strong>✓ Tolerans Kontrolü:</strong> Mil Boyu (A), Boru Boyundan (L) en az 30 mm uzun olmalıdır. (Mevcut Fark: <strong>${diff} mm</strong>) - İMALATA UYGUN</span>
+          </div>
+          <span class="bg-emerald-600 text-white text-[10px] uppercase font-bold px-2.5 py-0.5 rounded tracking-wide">Geçerli</span>
+        `;
+        badgeStatus.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200";
+        badgeStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Üretilebilir / Onaylı`;
+        inputA.classList.remove('border-rose-400', 'bg-rose-50');
+      } else {
+        validationBox.className = "p-3 bg-rose-50 border border-rose-200 rounded-lg flex items-center justify-between text-xs font-mono text-rose-800 transition-all";
+        validationBox.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px] text-rose-600">warning</span>
+            <span><strong>⚠️ Tolerans Uyarısı:</strong> Mil Boyu (A) yetersiz! Boru boyundan en az 30 mm uzun olmalıdır. (Mevcut Fark: <strong>${diff} mm</strong>)</span>
+          </div>
+          <span class="bg-rose-600 text-white text-[10px] uppercase font-bold px-2.5 py-0.5 rounded tracking-wide">Hatalı Ölçü</span>
+        `;
+        badgeStatus.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-rose-50 text-rose-700 border border-rose-200";
+        badgeStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Tolerans Hatası`;
+        inputA.classList.add('border-rose-400', 'bg-rose-50');
+      }
+
+      // Dynamic SKU
+      skuBadge.textContent = `DSN-ROL-D${d}-L${l}-A${a}-${currentMilCode}`;
+
+      // Dynamic Price calculation
+      // Base calculation: (d * 2.5) + (l * 0.8) + (mil * 4) + currentKaplamaExtra
+      const baseUnit = 280 + (parseInt(d) * 2.1) + (l * 0.55) + (parseInt(mil) * 3) + currentKaplamaExtra;
+      let finalUnit = Math.round(baseUnit);
+      let discountRate = qty >= 25 ? 0.9 : 1.0;
+      let total = Math.round(finalUnit * qty * discountRate);
+
+      priceUnit.textContent = `₺ ${finalUnit.toLocaleString('tr-TR')},00 / adet`;
+      priceTotal.textContent = `₺ ${total.toLocaleString('tr-TR')},00`;
+
+      if (qty >= 25) {
+        bulkDiscountNote.textContent = `✨ %10 Proje İskontosu Uygulandı (${qty} adet)`;
+        bulkDiscountNote.className = "font-mono text-[11px] text-emerald-700 text-right font-semibold";
+      } else {
+        bulkDiscountNote.textContent = `✨ 25+ adette %10 proje iskontosu uygulanır.`;
+        bulkDiscountNote.className = "font-mono text-[11px] text-emerald-700 text-right";
+      }
+    }
+
+    // Mil ucu radio interaction
+    const milCards = document.querySelectorAll('.mil-card');
+    milCards.forEach(card => {
+      card.addEventListener('click', () => {
+        milCards.forEach(c => {
+          c.classList.remove('border-2', 'border-[#0284C7]', 'bg-[#f0f9ff]');
+          c.classList.add('border', 'border-slate-200', 'bg-white');
+          const dot = c.querySelector('.radio-dot');
+          dot.className = "w-4 h-4 rounded-full border border-slate-300 bg-white flex items-center justify-center radio-dot";
+          dot.innerHTML = "";
+          const radio = c.querySelector('input[type="radio"]');
+          radio.checked = false;
+        });
+
+        card.classList.add('border-2', 'border-[#0284C7]', 'bg-[#f0f9ff]');
+        card.classList.remove('border-slate-200', 'bg-white');
+        const activeDot = card.querySelector('.radio-dot');
+        activeDot.className = "w-4 h-4 rounded-full border-2 border-[#0284C7] bg-[#0284C7] flex items-center justify-center radio-dot";
+        activeDot.innerHTML = '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>';
+        const activeRadio = card.querySelector('input[type="radio"]');
+        activeRadio.checked = true;
+
+        const code = card.getAttribute('data-code');
+        const sw = inputSw.value.trim() || '14';
+        const freze = inputFreze.value.trim() || '15';
+        currentMilCode = `${code}${sw}`;
+        summaryMilUcu.textContent = `${card.getAttribute('data-title')} (${sw} × ${freze} mm)`;
+        updateConfig();
+      });
+    });
+
+    // Kaplama interaction
+    const kaplamaCards = document.querySelectorAll('.kaplama-card');
+    kaplamaCards.forEach(card => {
+      card.addEventListener('click', () => {
+        kaplamaCards.forEach(c => {
+          c.classList.remove('border-2', 'border-[#0284C7]', 'bg-[#f0f9ff]');
+          c.classList.add('border', 'border-slate-200', 'bg-white');
+          c.querySelector('input[type="radio"]').checked = false;
+        });
+        card.classList.add('border-2', 'border-[#0284C7]', 'bg-[#f0f9ff]');
+        card.classList.remove('border-slate-200', 'bg-white');
+        card.querySelector('input[type="radio"]').checked = true;
+        currentKaplamaExtra = parseInt(card.getAttribute('data-extra')) || 0;
+        summaryKaplama.textContent = card.getAttribute('data-name');
+        updateConfig();
+      });
+    });
+
+    // Input listeners
+    selectD.addEventListener('change', updateConfig);
+    selectMil.addEventListener('change', updateConfig);
+    inputL.addEventListener('input', updateConfig);
+    inputA.addEventListener('input', updateConfig);
+    inputSw.addEventListener('input', () => {
+      const activeCard = document.querySelector('.mil-card.border-2');
+      const code = activeCard ? activeCard.getAttribute('data-code') : 'F';
+      currentMilCode = `${code}${inputSw.value.trim() || '14'}`;
+      if (activeCard) {
+        summaryMilUcu.textContent = `${activeCard.getAttribute('data-title')} (${inputSw.value.trim() || '14'} × ${inputFreze.value.trim() || '15'} mm)`;
+      }
+      updateConfig();
+    });
+    inputFreze.addEventListener('input', () => {
+      const activeCard = document.querySelector('.mil-card.border-2');
+      if (activeCard) {
+        summaryMilUcu.textContent = `${activeCard.getAttribute('data-title')} (${inputSw.value.trim() || '14'} × ${inputFreze.value.trim() || '15'} mm)`;
+      }
+    });
+
+    // Quantity buttons
+    btnQtyMinus.addEventListener('click', () => {
+      let q = parseInt(inputQty.value) || 1;
+      if (q > 1) {
+        inputQty.value = q - 1;
+        updateConfig();
+      }
+    });
+
+    btnQtyPlus.addEventListener('click', () => {
+      let q = parseInt(inputQty.value) || 1;
+      inputQty.value = q + 1;
+      updateConfig();
+    });
+
+    inputQty.addEventListener('input', () => {
+      if (parseInt(inputQty.value) < 1) inputQty.value = 1;
+      updateConfig();
+    });
+
+    // Initial trigger
+    updateConfig();
+  </script>
+</body></html>

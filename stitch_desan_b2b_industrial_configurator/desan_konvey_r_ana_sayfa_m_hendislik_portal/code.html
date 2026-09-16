@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Desan Konveyör &amp; Mekanik İmalat - İkitelli OSB</title>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-sky-100 selection:text-sky-900">
+<!-- GLOBAL HEADER (100% Light Theme) -->
+<header class="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-slate-200">
+<!-- Layer 1: Top Bar -->
+<div class="bg-slate-100 text-slate-700 text-xs py-2 px-4 lg:px-8 border-b border-slate-200 font-mono">
+<div class="max-w-[1440px] mx-auto flex flex-wrap justify-between items-center gap-2">
+<div class="flex flex-wrap items-center gap-4 lg:gap-6 text-[11px] lg:text-xs"><span class="flex items-center gap-1.5 font-medium text-slate-700"><span class="material-symbols-outlined text-[15px] text-[#0284c7]">verified</span>Desan Makina San. Tic.</span><span class="hidden sm:flex items-center gap-1.5 font-medium text-slate-600"><span class="material-symbols-outlined text-[15px] text-slate-500">factory</span>Atölye: İkitelli OSB Atatürk Oto San. Sit. 19. Sk. No:545</span><span class="hidden md:flex items-center gap-1.5 font-medium text-slate-600"><span class="material-symbols-outlined text-[15px] text-emerald-600">local_shipping</span>İstanbul İçi Planlı Montaj &amp; Ambar Sevk</span></div>
+<div class="flex items-center gap-4 text-[11px] lg:text-xs ml-auto">
+<!-- Currency Toggle -->
+<div class="flex items-center border border-slate-300 rounded overflow-hidden bg-white shadow-xs">
+<button class="px-2 py-0.5 bg-[#0284c7] text-white font-bold tracking-wider">₺ TL</button>
+<button class="px-2 py-0.5 text-slate-600 hover:bg-slate-100 transition-colors font-medium">$ USD</button>
+</div>
+<a class="hidden sm:inline-block text-slate-600 hover:text-[#0284c7] transition-colors font-medium" href="#">Kurumsal Cari Girişi</a>
+<a class="flex items-center gap-1.5 text-[#0284c7] font-bold hover:text-[#0369a1] bg-sky-50 px-2.5 py-1 rounded border border-sky-200 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">shopping_cart</span>
+<span class="">Teklif Sepetim (0 Kalem)</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Layer 2: Main Navigation Bar -->
+<div class="h-20 px-4 lg:px-8 max-w-[1440px] mx-auto flex items-center justify-between gap-6">
+<!-- Left: Desan Logo -->
+<a class="flex items-center gap-3 shrink-0 group" href="#">
+<div class="w-10 h-10 rounded-lg bg-[#0284c7] flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:bg-[#0369a1] transition-all">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H8V8h3c2.21 0 4 1.79 4 4s-1.79 4-4 4zm0-6H9.5v4H11c1.1 0 2-.9 2-2s-.9-2-2-2z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-extrabold text-2xl tracking-tight text-slate-900 leading-none">DESAN</span>
+<span class="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-semibold mt-0.5">Makina ve Konveyör</span>
+</div>
+</a>
+<!-- Center: Font-Mono Nav Links -->
+<nav class="hidden xl:flex items-center gap-6 font-mono text-[13px] font-medium text-slate-800">
+<a class="text-[#0284c7] font-bold border-b-2 border-[#0284c7] py-2 transition-all" href="#">Ana Sayfa</a>
+<a class="hover:text-[#0284c7] py-2 transition-colors" href="#">Konveyör Bantları</a>
+<a class="hover:text-[#0284c7] py-2 transition-colors" href="#">Rulolar &amp; İstasyonlar</a>
+<a class="hover:text-[#0284c7] py-2 transition-colors" href="#">Tamburlar &amp; Güç Aktarımı</a>
+<a class="hover:text-[#0284c7] py-2 transition-colors" href="#">Yataklı Rulmanlar</a>
+<a class="hover:text-[#0284c7] py-2 transition-colors" href="#">İstanbul Atölye &amp; Montaj</a>
+</nav>
+<!-- Right: Search & Quick CTA -->
+<div class="flex items-center gap-3 shrink-0">
+
+<button class="bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-lg shadow-sm hover:shadow transition-all flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-[18px]">square_foot</span>
+<span class="">Özel Ölçü Teklif Al</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="flex-1 w-full">
+<!-- HERO SECTION (60/40 Split Grid) -->
+<section class="w-full bg-gradient-to-b from-white via-[#f8faff] to-[#f1f5f9] border-b border-slate-200 py-12 lg:py-16 relative overflow-hidden">
+<!-- Subtle Technical Grid Lines -->
+<div class="absolute inset-0 pointer-events-none opacity-40 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+<div class="max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- LEFT SIDE (60% ~ 7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-start gap-6">
+<!-- Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 border border-sky-200 shadow-2xs">
+<span class="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse"></span>
+<span class="font-mono text-xs font-bold text-[#0284c7] tracking-wider uppercase">Endüstriyel Konveyör Sistemleri</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+              Özel Ölçü Konveyör Bandı &amp; <span class="text-[#0284c7]">Mekanik Parça İmalatı</span>
+</h1>
+<!-- Subtitle -->
+<p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+              İkitelli OSB'deki modern atölyemizde mikron hassasiyetle kesim, soğuk/sıcak vulkanizasyon ve özel rulo &amp; tambur imalatı gerçekleştiriyor, tüm Türkiye'ye ambar ve planlı montaj desteği sağlıyoruz.
+            </p>
+<!-- 3 White Metric Cards with Light Borders -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full pt-1">
+<div class="p-3.5 bg-white rounded-xl border border-slate-200 shadow-xs flex items-start gap-3 hover:border-sky-300 transition-colors">
+<div class="p-2 rounded-lg bg-sky-50 text-[#0284c7] shrink-0 border border-sky-100">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+</div>
+<div>
+<div class="font-mono font-bold text-xs text-slate-900">±0.5 mm Kesim</div>
+<div class="text-[11px] text-slate-500 mt-0.5">CNC Hassasiyeti</div>
+</div>
+</div>
+<div class="p-3.5 bg-white rounded-xl border border-slate-200 shadow-xs flex items-start gap-3 hover:border-sky-300 transition-colors">
+<div class="p-2 rounded-lg bg-sky-50 text-[#0284c7] shrink-0 border border-sky-100">
+<span class="material-symbols-outlined text-[20px]">auto_fix_high</span>
+</div>
+<div>
+<div class="font-mono font-bold text-xs text-slate-900">Sıcak Vulkanizasyon</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Atölye &amp; Yerinde Montaj</div>
+</div>
+</div>
+<div class="p-3.5 bg-white rounded-xl border border-slate-200 shadow-xs flex items-start gap-3 hover:border-sky-300 transition-colors">
+<div class="p-2 rounded-lg bg-sky-50 text-[#0284c7] shrink-0 border border-sky-100">
+<span class="material-symbols-outlined text-[20px]">request_quote</span>
+</div>
+<div>
+<div class="font-mono font-bold text-xs text-slate-900">Kurumsal B2B</div>
+<div class="text-[11px] text-slate-500 mt-0.5">Anında Resmi Proforma</div>
+</div>
+</div>
+</div>
+<!-- CTA Buttons -->
+<div class="flex flex-wrap items-center gap-3.5 pt-2">
+<button class="bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit_document</span>
+<span class="">Hızlı Teklif Oluştur</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<button class="bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm px-5 py-3 rounded-lg border border-slate-300 hover:border-slate-400 shadow-xs transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-slate-500">download</span>
+<span class="">2026 Teknik Katalog (PDF)</span>
+</button>
+</div>
+</div>
+<!-- RIGHT SIDE (40% ~ 5 cols): Interactive Calculator -->
+<div class="lg:col-span-5 w-full">
+<div class="bg-white rounded-2xl border border-slate-200 shadow-lg shadow-slate-200/50 overflow-hidden">
+<!-- Calculator Header Tabs -->
+<div class="grid grid-cols-3 border-b border-slate-200 bg-slate-50/80 font-mono text-xs">
+<button class="py-3 px-2 text-[#0284c7] font-bold bg-white border-b-2 border-[#0284c7] flex items-center justify-center gap-1.5 shadow-2xs">
+<span class="material-symbols-outlined text-[15px]">straighten</span>
+<span class="">1. Bant</span>
+</button>
+<button class="py-3 px-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">circle</span>
+<span class="">2. Rulo</span>
+</button>
+<button class="py-3 px-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">settings</span>
+<span class="">3. Tambur</span>
+</button>
+</div>
+<!-- Form Body -->
+<div class="p-6 space-y-4">
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="font-mono text-xs font-semibold text-slate-700 uppercase tracking-wider">Bant Tipi &amp; Mukavemet</label>
+<span class="text-[11px] text-[#0284c7] font-mono">DIN 22102</span>
+</div>
+<select class="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm font-medium rounded-lg p-2.5 focus:bg-white focus:border-[#0284c7] focus:ring-1 focus:ring-[#0284c7] transition-all" id="calc-belt">
+<option value="1250">EP 400/3 Kauçuk Konveyör Bandı (4+2 mm)</option>
+<option value="1680">EP 500/4 Ağır Hizmet Kauçuk Bandı (5+2 mm)</option>
+<option value="2150">EP 630/4 Darbe Mukavemetli Bant (6+3 mm)</option>
+<option value="980">PVC Beyaz / Gri Tırtıklı Konveyör Bandı</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-3.5">
+<div class="space-y-1.5">
+<label class="font-mono text-[11px] font-semibold text-slate-600 uppercase">Genişlik (mm)</label>
+<input class="w-full bg-slate-50 border border-slate-300 font-mono text-slate-800 text-sm rounded-lg p-2.5 focus:bg-white focus:border-[#0284c7] focus:ring-1 focus:ring-[#0284c7] transition-all" id="calc-width" max="2000" min="300" step="50" type="number" value="650">
+</div>
+<div class="space-y-1.5">
+<label class="font-mono text-[11px] font-semibold text-slate-600 uppercase">Uzunluk (Metre)</label>
+<input class="w-full bg-slate-50 border border-slate-300 font-mono text-slate-800 text-sm rounded-lg p-2.5 focus:bg-white focus:border-[#0284c7] focus:ring-1 focus:ring-[#0284c7] transition-all" id="calc-length" max="500" min="1" step="0.5" type="number" value="25">
+</div>
+</div>
+<div class="space-y-2 pt-1">
+<label class="font-mono text-[11px] font-semibold text-slate-600 uppercase tracking-wider block">Ek Yeri / Bağlantı Şekli</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-2.5 border border-slate-200 rounded-lg cursor-pointer bg-slate-50/60 hover:bg-slate-50 transition-colors">
+<input checked="" class="text-[#0284c7] focus:ring-[#0284c7]" name="joint" type="radio" value="open">
+<span class="text-xs font-medium text-slate-800">Açık Uçlu (Rulo)</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 border border-slate-200 rounded-lg cursor-pointer bg-slate-50/60 hover:bg-slate-50 transition-colors">
+<input class="text-[#0284c7] focus:ring-[#0284c7]" name="joint" type="radio" value="endless">
+<span class="text-xs font-medium text-slate-800">Sonsuz Vulkanize</span>
+</label>
+</div>
+</div>
+<!-- Price Summary Box -->
+<div class="p-3.5 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-between">
+<div>
+<span class="text-[11px] font-mono uppercase text-slate-500 font-semibold block">Tahmini Atölye Fiyatı</span>
+<span class="text-xs text-slate-600">KDV Hariç • İkitelli Teslim</span>
+</div>
+<div class="text-right">
+<span class="text-xl font-extrabold font-mono text-[#0284c7]" id="calc-price">20.312 ₺</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-[#0284c7] hover:bg-[#0369a1] text-white font-bold text-sm py-3 rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm group">
+<span class="">Hesapla ve Sepete Ekle</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">shopping_cart_checkout</span>
+</button>
+<p class="text-[11px] text-center text-slate-500 font-mono">
+                  ⚡ 50+ metre alımlarda kurumsal proje iskontosu uygulanır.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: ANA ÜRÜN GRUPLARI (5 Clean White Category Cards) -->
+<section class="w-full py-16 bg-white border-b border-slate-200">
+<div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<div class="flex items-center gap-2 font-mono text-xs text-[#0284c7] font-bold uppercase tracking-wider mb-1">
+<span class="w-2 h-2 rounded-full bg-[#0284c7]"></span>
+              İmalat &amp; Stok Kataloğu
+            </div>
+<h2 class="text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">Ana Ürün Grupları</h2>
+<p class="text-slate-600 text-sm sm:text-base mt-1.5 max-w-2xl">
+              Ağır sanayi, madencilik, kırma-eleme ve lojistik tesisleri için yüksek mukavemetli konveyör ekipmanları.
+            </p>
+</div>
+<a class="inline-flex items-center gap-1 font-mono text-xs font-bold text-[#0284c7] hover:text-[#0369a1] transition-colors group" href="#">
+<span class="">Tüm Kategorileri İncele</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- 5 Category Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+<!-- Card 1: Kauçuk Bantlar -->
+<a class="group bg-white rounded-xl border border-slate-200 hover:border-[#0284c7] hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden" href="#">
+<div class="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">
+<img alt="EP Serisi Kauçuk Bantlar" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJhwVnmEkAv7dIdgZxkefDEhnA7l_wQqq01Tv9xIZIQ2fz_SLfah6mJpUXWrY4D_qiK3UEUcsB4NOZZcTdaJTklC69pPLMP-tvd_dDnEMwwKtPcyyBWeQRyYdwfF4fNum5jAdYaO-tTtit7COu_xxZ8gT_rurWZhfREPg658iwLK5XoIyTiGeLny-Yk0pvyNMbJ2ifhj5x8H7_I8l3-uTUBo8Aa-7-bzAwnE_HaAbrmZxZ8pPpbUbT">
+<div class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs font-mono text-[10px] font-bold text-[#0284c7] px-2 py-0.5 rounded border border-slate-200">
+                KTG-01
+              </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<span class="font-mono text-[11px] text-slate-500 uppercase tracking-wider font-semibold">EP 400 - 1000 N/mm</span>
+<h3 class="font-bold text-base text-slate-900 group-hover:text-[#0284c7] transition-colors mt-0.5 leading-snug">
+                EP Serisi Kauçuk Bantlar
+              </h3>
+<p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">
+                Aşınmaya, yağa ve ısıya dayanıklı yüksek mukavemetli kord bezli kauçuk konveyör bantları.
+              </p>
+<div class="mt-auto pt-3 flex items-center text-xs font-bold text-[#0284c7]">
+<span class="">Ölçüleri Gör</span>
+<span class="material-symbols-outlined text-[14px] ml-1 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</a>
+<!-- Card 2: Rulolar & İstasyonlar -->
+<a class="group bg-white rounded-xl border border-slate-200 hover:border-[#0284c7] hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden" href="#">
+<div class="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">
+<img alt="Konveyör Ruloları ve İstasyonları" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDXU98gVd288k6wB9YuZoN3Le3og3wl6oNnuHmH_8WLxRvmNK9Oh38GcNcnXjsEiEGx7jFSrFVnHSsYE9qyuuY2YDYYWZeKcESfG5tUsm87nVeMqr_VYTNH19UEFJB5VmASI_9pLJxdWdLfrAnJjyaO95ZwPPHidli-UhWrx4XAHqCdqOzm5jSPcxz_cRMygoCpy0tZissaGqOFT9c7Nnvj2nNM7yFpZ1YChw9IQ7pBimJYDgGM_3g">
+<div class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs font-mono text-[10px] font-bold text-[#0284c7] px-2 py-0.5 rounded border border-slate-200">
+                KTG-02
+              </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<span class="font-mono text-[11px] text-slate-500 uppercase tracking-wider font-semibold">DIN 15207 Normu</span>
+<h3 class="font-bold text-base text-slate-900 group-hover:text-[#0284c7] transition-colors mt-0.5 leading-snug">
+                Konveyör Ruloları
+              </h3>
+<p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">
+                Taşıyıcı, dönüş ve darbe istasyonları. Labirent toz contalı, hassas yataklama toleranslı.
+              </p>
+<div class="mt-auto pt-3 flex items-center text-xs font-bold text-[#0284c7]">
+<span class="">Ölçüleri Gör</span>
+<span class="material-symbols-outlined text-[14px] ml-1 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</a>
+<!-- Card 3: Tamburlar -->
+<a class="group bg-white rounded-xl border border-slate-200 hover:border-[#0284c7] hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden" href="#">
+<div class="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">
+<img alt="Tahrik ve Kuyruk Tamburları" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCccolmTd4lBUjGPi9sRK0gqk1RgftreiyfhGSV0-fOgqYgeygRm0XT3HJFnr6-8hcDjLmKqSSIwz8iJjGoR3wIpXuOVSF_tbeTaj2EzlROMC7M3uLbEC7hPmFOBB5djdUOpgkE96LeLeZzjyC30-I8QePAa3mT2ZstZWg2911rhf4szUa1GHo1It_MDHFZvRUveIQRET59YW4ak9DDxNvSdsEphssXTi-kxya-FQAtIBoxXkTHedal">
+<div class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs font-mono text-[10px] font-bold text-[#0284c7] px-2 py-0.5 rounded border border-slate-200">
+                KTG-03
+              </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<span class="font-mono text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Kauçuk / Baklava Kaplama</span>
+<h3 class="font-bold text-base text-slate-900 group-hover:text-[#0284c7] transition-colors mt-0.5 leading-snug">
+                Tahrik &amp; Tamburlar
+              </h3>
+<p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">
+                Kauçuk ve seramik kaplamalı tahrik tamburları, helisel oluklu gergi ve saptırma üniteleri.
+              </p>
+<div class="mt-auto pt-3 flex items-center text-xs font-bold text-[#0284c7]">
+<span class="">Ölçüleri Gör</span>
+<span class="material-symbols-outlined text-[14px] ml-1 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</a>
+<!-- Card 4: Yataklı Rulmanlar -->
+<a class="group bg-white rounded-xl border border-slate-200 hover:border-[#0284c7] hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden" href="#">
+<div class="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">
+<img alt="Yataklı Rulmanlar SNH UCP" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Ktx4OFsRmW-hNuz3khP8M5BfXI_tPKqs3V4uA4KJteGJ0LY4CFPh8SwSse8-slw5qgG-2GJVKWIVANMgvUvYv0VnjQ5DmXnJDFlwnOIRjVS9OaytYxsACV12yNyHOQ0kwkQD0TJvpvCFHF1SzFk6lN7FyCksZyQQZLlhMDfdO2I7r-j7nhlU1FJ61jIZ33Erz_jwyui8FzjHAxulJC2J5-UDX5Kw4tMm3lxYpF4S4jNFQRupoVcv">
+<div class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs font-mono text-[10px] font-bold text-[#0284c7] px-2 py-0.5 rounded border border-slate-200">
+                KTG-04
+              </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<span class="font-mono text-[11px] text-slate-500 uppercase tracking-wider font-semibold">SNH / UCP / UCF</span>
+<h3 class="font-bold text-base text-slate-900 group-hover:text-[#0284c7] transition-colors mt-0.5 leading-snug">
+                Yataklı Rulmanlar
+              </h3>
+<p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">
+                Pik döküm ve sfero gövdeli ağır hizmet tipi rulman yatakları, yağlama memeli labirent keçeli.
+              </p>
+<div class="mt-auto pt-3 flex items-center text-xs font-bold text-[#0284c7]">
+<span class="">Ölçüleri Gör</span>
+<span class="material-symbols-outlined text-[14px] ml-1 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</a>
+<!-- Card 5: Poliüretan Sıyırıcılar -->
+<a class="group bg-white rounded-xl border border-slate-200 hover:border-[#0284c7] hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden" href="#">
+<div class="h-44 bg-slate-100 relative overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">
+<img alt="Poliüretan Sıyırıcı Sistemleri" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqGhHwiDywbxmgSelAspoX6DdUl4aX99cAO1Buns2eLSljdVehAo3-EIl4ZoLS39A4J_9boiPjNo47SAmPW7-JNy6UYpzEWroflmWm0yczP0wMx9302_7XcWH9SWUGnY_-1WzO632C7kHUQ9DT5cLEd7kH9h8KNMGzWoxS-z2qqj6PdV5qh2IKblEcYP0qf6zTb3GgcBk8Il5RKqgJC3B0LxybBaQ7XbjU-f_K9r12zPKdjD1siRbw">
+<div class="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs font-mono text-[10px] font-bold text-[#0284c7] px-2 py-0.5 rounded border border-slate-200">
+                KTG-05
+              </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<span class="font-mono text-[11px] text-slate-500 uppercase tracking-wider font-semibold">90-95 Shore A</span>
+<h3 class="font-bold text-base text-slate-900 group-hover:text-[#0284c7] transition-colors mt-0.5 leading-snug">
+                Poliüretan Sıyırıcılar
+              </h3>
+<p class="text-slate-500 text-xs mt-2 line-clamp-2 leading-relaxed">
+                Primer ve sekonder bant temizleme bıçak sistemleri, yaylı tansiyon mekanizmalı modüler bloklar.
+              </p>
+<div class="mt-auto pt-3 flex items-center text-xs font-bold text-[#0284c7]">
+<span class="">Ölçüleri Gör</span>
+<span class="material-symbols-outlined text-[14px] ml-1 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER (100% Light Slate Theme - NOT DARK) -->
+<footer class="w-full bg-[#f1f5f9] text-slate-700 pt-16 pb-10 border-t border-slate-200 font-sans">
+<div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+<!-- 4 Columns Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-slate-300">
+<!-- Column 1: Company Logo & Info (4 cols) -->
+<div class="lg:col-span-4 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#0284c7] flex items-center justify-center text-white shadow-xs">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H8V8h3c2.21 0 4 1.79 4 4s-1.79 4-4 4zm0-6H9.5v4H11c1.1 0 2-.9 2-2s-.9-2-2-2z"></path>
+</svg>
+</div>
+<div>
+<span class="font-extrabold text-xl tracking-tight text-slate-900 leading-none">DESAN</span>
+<span class="font-mono text-[11px] block text-slate-500 font-semibold">Desan Makina San. Tic.</span>
+</div>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed pr-6">
+            Ağır sanayi ve maden konveyör sistemlerinde Türkiye'nin güvenilir üretim ortağı. İkitelli OSB'deki atölyemizde bant kesim, vulkanizasyon, tambur kaplama ve komple konveyör yedek parçaları üretiyoruz.
+          </p>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-700 font-mono text-xs font-semibold shadow-2xs">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">verified</span>
+<span class="">ISO 9001:2015 Kalite Tescilli</span>
+</div>
+</div>
+<!-- Column 2: Ürün Grupları (3 cols) -->
+<div class="lg:col-span-3 space-y-3.5">
+<h4 class="font-bold text-sm text-slate-900 uppercase tracking-wider font-mono">Ürün Grupları</h4>
+<ul class="space-y-2 font-mono text-xs text-slate-600">
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> EP Kauçuk Konveyör Bantları</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> İmalat Ruloları &amp; İstasyonlar</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> Tahrik &amp; Kuyruk Tamburları</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> SNH &amp; UCP Yataklı Rulmanlar</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> Poliüretan Sıyırıcı Sistemleri</a></li>
+</ul>
+</div>
+<!-- Column 3: Kurumsal & B2B (2 cols) -->
+<div class="lg:col-span-2 space-y-3.5">
+<h4 class="font-bold text-sm text-slate-900 uppercase tracking-wider font-mono">Kurumsal &amp; B2B</h4>
+<ul class="space-y-2 font-mono text-xs text-slate-600">
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> B2B Bayi Girişi</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> 2026 Teknik Katalog</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> Banka Hesap Numaraları</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> Referans Tesisler</a></li>
+<li class=""><a class="hover:text-[#0284c7] transition-colors flex items-center gap-1.5" href="#"><span class="text-slate-400">›</span> Kalite Sertifikaları</a></li>
+</ul>
+</div>
+<!-- Column 4: İletişim & Atölye (3 cols) -->
+<div class="lg:col-span-3 space-y-3.5">
+<h4 class="font-bold text-sm text-slate-900 uppercase tracking-wider font-mono">İletişim &amp; Atölye</h4>
+<div class="space-y-2.5 text-xs text-slate-600 font-mono"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-[17px] text-[#0284c7] shrink-0 mt-0.5">location_on</span><span class="">İkitelli Organize San. Böl. Atatürk Oto San. Sitesi 19. Sokak No:545 Başakşehir / İSTANBUL</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-[#0284c7] shrink-0">call</span><a class="hover:text-[#0284c7] transition-colors font-bold" href="tel:+902124862663">Tel: +90 (212) 486 26 63</a></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-[#0284c7] shrink-0">print</span><span class="text-slate-600">Faks: +90 (212) 486 26 64</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-[#0284c7] shrink-0">smartphone</span><a class="hover:text-[#0284c7] transition-colors font-bold" href="tel:+905327075281">Gsm: +90 (532) 707 52 81</a></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[17px] text-[#0284c7] shrink-0">mail</span><a class="hover:text-[#0284c7] transition-colors" href="mailto:info@desanmakina.net">info@desanmakina.net</a></div><div class="pt-1"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-100/80 text-emerald-800 text-[11px] font-bold border border-emerald-200"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>09:00 - 18:30 Açık (Pazartesi - Cumartesi)</span></div></div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-slate-500">
+<div class="">© 2026 Desan Makina San. Tic. Tüm Hakları Saklıdır.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-[#0284c7] transition-colors" href="#">KVKK Aydınlatma Metni</a>
+<a class="hover:text-[#0284c7] transition-colors" href="#">Gizlilik Politikası</a>
+<a class="hover:text-[#0284c7] transition-colors" href="#">Çerez Politikası</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Quick Script for Dynamic Price Calculation -->
+<script>
+    const beltSelect = document.getElementById('calc-belt');
+    const widthInput = document.getElementById('calc-width');
+    const lengthInput = document.getElementById('calc-length');
+    const priceDisplay = document.getElementById('calc-price');
+
+    function updatePrice() {
+      const basePerMeter = parseFloat(beltSelect.value) || 1250;
+      const width = parseFloat(widthInput.value) || 650;
+      const length = parseFloat(lengthInput.value) || 25;
+      const jointRadios = document.getElementsByName('joint');
+      let jointCost = 0;
+      for (const radio of jointRadios) {
+        if (radio.checked && radio.value === 'endless') {
+          jointCost = 1450;
+        }
+      }
+      
+      const widthFactor = width / 1000;
+      const total = Math.round((basePerMeter * widthFactor * length) + jointCost);
+      priceDisplay.textContent = total.toLocaleString('tr-TR') + ' ₺';
+    }
+
+    if (beltSelect && widthInput && lengthInput && priceDisplay) {
+      beltSelect.addEventListener('change', updatePrice);
+      widthInput.addEventListener('input', updatePrice);
+      lengthInput.addEventListener('input', updatePrice);
+      document.querySelectorAll('input[name="joint"]').forEach(el => {
+        el.addEventListener('change', updatePrice);
+      });
+    }
+  </script>
+
+
+
+
+</body></html>
