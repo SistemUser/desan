@@ -381,35 +381,7 @@ import './index.css';
     updateCariUI();
   }
 
-  const DEFAULT_CART = [
-    {
-      id: 'c1',
-      title: 'EP 400/3 4+2 Antistatik Kauçuk Bant',
-      desc: 'Genişlik: 800mm, Kalınlık: 10mm, Aşınma Dayanımlı',
-      qty: 150,
-      unit: 'm',
-      unitPrice: 1240,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJhwVnmEkAv7dIdgZxkefDEhnA7l_wQqq01Tv9xIZIQ2fz_SLfah6mJpUXWrY4D_qiK3UEUcsB4NOZZcTdaJTklC69pPLMP-tvd_dDnEMwwKtPcyyBWeQRyYdwfF4fNum5jAdYaO-tTtit7COu_xxZ8gT_rurWZhfREPg658iwLK5XoIyTiGeLny-Yk0pvyNMbJ2ifhj5x8H7_I8l3-uTUBo8Aa-7-bzAwnE_HaAbrmZxZ8pPpbUbT'
-    },
-    {
-      id: 'c2',
-      title: 'Taşıyıcı Rulo İstasyonu – Üçlü',
-      desc: 'Çap: Ø89mm, Boru: 315mm, Şase Genişliği: 800mm',
-      qty: 45,
-      unit: 'ad',
-      unitPrice: 850,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBDXU98gVd288k6wB9YuZoN3Le3og3wl6oNnuHmH_8WLxRvmNK9Oh38GcNcnXjsEiEGx7jFSrFVnHSsYE9qyuuY2YDYYWZeKcESfG5tUsm87nVeMqr_VYTNH19UEFJB5VmASI_9pLJxdWdLfrAnJjyaO95ZwPPHidli-UhWrx4XAHqCdqOzm5jSPcxz_cRMygoCpy0tZissaGqOFT9c7Nnvj2nNM7yFpZ1YChw9IQ7pBimJYDgGM_3g'
-    },
-    {
-      id: 'c3',
-      title: 'UCP 210 Yataklı Rulman',
-      desc: 'Mil Çapı: 50mm, Pik Döküm Gövde, Ağır Hizmet',
-      qty: 12,
-      unit: 'ad',
-      unitPrice: 1120,
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA_Ktx4OFsRmW-hNuz3khP8M5BfXI_tPKqs3V4uA4KJteGJ0LY4CFPh8SwSse8-slw5qgG-2GJVKWIVANMgvUvYv0VnjQ5DmXnJDFlwnOIRjVS9OaytYxsACV12yNyHOQ0kwkQD0TJvpvCFHF1SzFk6lN7FyCksZyQQZLlhMDfdO2I7r-j7nhlU1FJ61jIZ33Erz_jwyui8FzjHAxulJC2J5-UDX5Kw4tMm3lxYpF4S4jNFQRupoVcv'
-    }
-  ];
+  const DEFAULT_CART = [];
 
   const STORAGE_KEY = 'desan_b2b_cart_v1';
 
@@ -423,7 +395,7 @@ import './index.css';
     } catch (e) {
       console.warn('LocalStorage cart error:', e);
     }
-    return DEFAULT_CART;
+    return [];
   }
 
   function saveCartToStorage() {
