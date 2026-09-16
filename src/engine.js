@@ -716,6 +716,7 @@ import './index.css';
 
     function openMenu() {
       isOpen = true;
+      drawer.classList.remove('invisible');
       drawer.classList.remove('translate-x-full');
       backdrop.classList.remove('opacity-0', 'pointer-events-none');
       backdrop.classList.add('opacity-100');
@@ -730,6 +731,9 @@ import './index.css';
       backdrop.classList.remove('opacity-100');
       document.body.classList.remove('overflow-hidden');
       if (icon) icon.textContent = 'menu';
+      setTimeout(() => {
+        if (!isOpen) drawer.classList.add('invisible');
+      }, 300);
     }
 
     toggleBtn.addEventListener('click', (e) => {
@@ -1329,6 +1333,8 @@ import './index.css';
     if (headerCartBadge) headerCartBadge.textContent = `Teklif Sepetim (${totalKalem} Kalem)`;
     const mobileCartBadge = document.getElementById('mobile-cart-label');
     if (mobileCartBadge) mobileCartBadge.textContent = `Teklif Sepetim (${totalKalem} Kalem)`;
+    const mobileCartBadgeCount = document.getElementById('mobile-cart-badge-count');
+    if (mobileCartBadgeCount) mobileCartBadgeCount.textContent = totalKalem;
     if (tableBadge) tableBadge.textContent = `Toplam ${totalKalem} Kalem`;
 
     const tableWrapper = document.getElementById('cart-table-wrapper');
